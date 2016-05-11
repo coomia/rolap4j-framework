@@ -18,50 +18,21 @@
  */
 package org.rolap4j.common;
 
+import lombok.Data;
+import lombok.ToString;
+
 /**
- * Created by andriantomanga on 09/05/16.
+ * Created by andriantomanga on 11/05/16.
+ *
+ * @version 1.0-RELEASE
+ * @since 1.0-RELEASE
  */
-public enum ElementType {
+@Data
+@ToString
+public abstract class MappingElement {
 
-    /**
-     *
-     */
-    MEASURE(1),
+    protected String name;
 
-
-    /**
-     *
-     */
-    CUBE(2),
-
-
-    /**
-     *
-     */
-    DIMENSION(3),
-
-
-    /**
-     *
-     */
-    LEVEL(4),
-
-
-    /**
-     *
-     */
-    PROPERTY(5),
-
-    /**
-     *
-     */
-    UNKNOWN(10);
-
-
-    private int value;
-
-    private ElementType(int value) {
-        this.value = value;
-    }
+    protected String column;
 
 }
