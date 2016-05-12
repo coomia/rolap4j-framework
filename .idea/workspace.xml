@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ea43e89-b01a-473c-afb7-3a66ec7d1e31" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Cube.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Element.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Hierarchy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Measure.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/CubeUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/ElementType.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/ElementType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Level.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Level.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/MappingElement.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/MappingElement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java" />
     </list>
     <ignored path="rolap4j-framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dimension.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Dimension.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="54" />
+            <state relative-caret-position="345">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cube.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cube.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/common/Cube.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
+            <state relative-caret-position="1170">
               <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -186,12 +177,12 @@
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/ElementType.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/MappingElement.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Element.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Hierarchy.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Level.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Measure.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Cube.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/CubeUnitTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java" />
       </list>
     </option>
   </component>
@@ -899,16 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/common/Element.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -992,8 +973,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/common/Cube.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
+        <state relative-caret-position="1170">
           <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/common/Dimension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

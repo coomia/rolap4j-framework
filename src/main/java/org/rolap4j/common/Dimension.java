@@ -35,11 +35,9 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(exclude = {"hierarchies"})
 @ToString(exclude = {"hierarchies"}, callSuper = true)
-public class Dimension {
+public class Dimension extends Element {
 
     protected List<Hierarchy> hierarchies = new ArrayList<>();
-
-    protected String name;
 
     public void addHierarchy(final Hierarchy hierarchy) {
 
