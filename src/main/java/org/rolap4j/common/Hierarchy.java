@@ -37,17 +37,12 @@ import java.util.List;
 @EqualsAndHashCode(exclude = {"levels"})
 @ToString(exclude = {"levels"}, callSuper = true)
 @Slf4j
-public class Hierarchy {
-
-    /**
-     * Name of the hierarchy element
-     */
-    private String name;
+public class Hierarchy extends Element {
 
     /**
      * Name of the hierarchy table
      */
-    private String tableName;
+    protected String tableName;
 
     /**
      * If the <Hierarchy> element has hasAll="false", the 'all' level is
@@ -56,17 +51,17 @@ public class Hierarchy {
      * the first year in the hierarchy. Changing the default member can be
      * confusing, so you should generally use hasAll="true"
      */
-    private boolean hasAll;
+    protected boolean hasAll;
 
     /**
      * Table primary key
      */
-    private String primaryKey;
+    protected String primaryKey;
 
     /**
      * Existing level in the dimension
      */
-    private List<Level> levels = new ArrayList<>();
+    protected List<Level> levels = new ArrayList<>();
 
     /**
      * Add a new level to the current dimension
