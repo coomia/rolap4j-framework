@@ -19,18 +19,46 @@
 package org.rolap4j.common;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 12/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
 @Data
-@ToString(callSuper = true)
-public abstract class MappingElement extends Element {
+@EqualsAndHashCode(exclude = {"hierarchies"})
+@ToString(exclude = {"hierarchies"}, callSuper = true)
+public class Dimension {
 
-    protected String column;
+    protected List<Hierarchy> hierarchies = new ArrayList<>();
+
+    protected String name;
+
+    public void addHierarchy(final Hierarchy hierarchy) {
+
+        hierarchies.add(hierarchy);
+    }
+
+    public void removeHierarchy(final Hierarchy hierarchy) {
+
+        hierarchies.remove(hierarchy);
+    }
+
+    public boolean hasHierarchy(final Hierarchy hierarchy) {
+
+        return hierarchies.contains(hierarchy);
+    }
+
+    public void addHierarchies(Collection<Hierarchy> someHierarchies) {
+
+        hierarchies.addAll(someHierarchies);
+    }
 
 }

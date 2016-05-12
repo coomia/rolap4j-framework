@@ -21,16 +21,16 @@ package org.rolap4j.common;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 12/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString(callSuper = true)
-public abstract class MappingElement extends Element {
+@Data @ToString
+public abstract class Element implements Serializable {
 
-    protected String column;
-
+    protected String name;
 }

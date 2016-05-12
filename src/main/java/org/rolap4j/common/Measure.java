@@ -22,15 +22,18 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 12/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
 @Data
 @ToString(callSuper = true)
-public abstract class MappingElement extends Element {
+public class Measure extends MappingElement {
 
-    protected String column;
+    protected String aggregator;
+
+    protected String formatString;
+
 
 }

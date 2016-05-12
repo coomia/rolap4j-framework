@@ -19,6 +19,7 @@
 package org.rolap4j.common;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +33,8 @@ import java.util.Set;
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@ToString(callSuper = true)
+@ToString(exclude = {"properties"}, callSuper = true)
+@EqualsAndHashCode(exclude = {"properties"})
 @Data
 @Slf4j
 public class Level extends MappingElement {

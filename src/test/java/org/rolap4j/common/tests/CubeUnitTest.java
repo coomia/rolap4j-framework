@@ -16,21 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.common.tests;
 
-import lombok.Data;
-import lombok.ToString;
+import org.junit.Test;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 12/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString(callSuper = true)
-public abstract class MappingElement extends Element {
+public class CubeUnitTest {
 
-    protected String column;
+    @Test
+    public void cubeTest() {
 
+        
+    }
 }

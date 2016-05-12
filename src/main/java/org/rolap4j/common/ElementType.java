@@ -23,45 +23,6 @@ package org.rolap4j.common;
  */
 public enum ElementType {
 
-    /**
-     *
-     */
-    MEASURE(1),
-
-
-    /**
-     *
-     */
-    CUBE(2),
-
-
-    /**
-     *
-     */
-    DIMENSION(3),
-
-
-    /**
-     *
-     */
-    LEVEL(4),
-
-
-    /**
-     *
-     */
-    PROPERTY(5),
-
-    /**
-     *
-     */
-    UNKNOWN(10);
-
-
-    private int value;
-
-    private ElementType(int value) {
-        this.value = value;
-    }
+    MEASURE, CUBE, DIMENSION, LEVEL, PROPERTY, UNKNOWN;
 
 }
