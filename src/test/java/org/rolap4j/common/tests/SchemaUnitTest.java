@@ -16,22 +16,33 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.common.tests;
+
+import org.junit.Test;
+import org.rolap4j.common.Cube;
+import org.rolap4j.common.Schema;
 
 /**
- * Created by andriantomanga on 09/05/16.
+ * Created by andriantomanga on 14/05/16.
+ *
+ * @version 1.0-RELEASE
+ * @since 1.0-RELEASE
  */
-public enum ElementType {
+public class SchemaUnitTest {
 
-    MEASURE("measure"), CUBE("cube"), DIMENSION("dimension"), LEVEL("level"), PROPERTY("property"), UNKNOWN("unknown");
+    @Test
+    public void testAddElement() {
 
-    private String value;
+        Cube ventes = new Cube();
+        ventes.setName("Ventes");
 
-    ElementType(String value) {
-        this.value = value;
-    }
+        Cube achats = new Cube();
+        achats.setName("Achats");
 
-    public String getValue() {
-        return value;
+        Schema schema = new Schema();
+        schema.addCube(ventes);
+        schema.addCube(achats);
+
+        schema.logSchemaCubes();
     }
 }
