@@ -111,7 +111,6 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
         String worker;
         int sprinter = 1;
         for (Node cubeNode : cubeNodes) {
-            final Cube cube = new Cube();
 
             // Set the cube name
             worker = cubeNode.valueOf("@name");
@@ -119,6 +118,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
                 throw new ParsingException("The cube number " + sprinter + " must have a name attribute defined" );
             }
             checkCubeAvailability(worker, notAvailableCubeNames);
+            final Cube cube = new Cube();
             cube.setName(worker);
 
             // Set the table name
@@ -258,14 +258,14 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
         String dimensionName;
 
         for (Node node : dimensionNodes) {
-            Dimension dimension = new Dimension();
-            dimensionName = node.valueOf("@name");
 
+            dimensionName = node.valueOf("@name");
             if (StringUtil.isEmpty(dimensionName)) {
                 throw new ParsingException("A dimension name is missing. The dimension index is : " + sprinter);
             }
 
             checkDimensionAvailability(dimensionName, notAvailableDimensionNames);
+            final Dimension dimension = new Dimension();
             dimension.setName(dimensionName);
             dimension.addHierarchies(loadHierarchies(node, dimensionName));
             dimensions.add(dimension);
@@ -299,10 +299,9 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
 
         for (Node hierarchyNode : hierarchiesNodes) {
 
-            Hierarchy hierarchy = new Hierarchy();
-
             worker = hierarchyNode.valueOf("@hasAll");
             checkHasAllValidity(worker, dimensionName, sprinter);
+            Hierarchy hierarchy = new Hierarchy();
             hierarchy.setHasAll("true".equalsIgnoreCase(worker));
 
             // get the required name ...
@@ -354,7 +353,6 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
         for (Node levelNode : levelNodes) {
 
             worker = levelNode.valueOf("@name");
-
             if (StringUtil.isEmpty(worker)) {
 
                 StringBuilder exceptionMessage = new StringBuilder();
@@ -402,7 +400,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
 
         for (Node propertyNode : propertyNodes) {
 
-            Property property = new Property();
+
             worker = propertyNode.valueOf("@name");
 
             if (StringUtil.isEmpty(worker)) {
@@ -410,6 +408,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
             }
 
             checkPropertyAvailability(worker, notAvailablePropertyNames);
+            final Property property = new Property();
             property.setName(worker);
             worker = propertyNode.valueOf("@column");
 
