@@ -527,7 +527,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
 
         if (!ElementPropertyValueAvailabilityChecker.isAvailable(dimensionName, notAvailableDimensionNames, ElementType.DIMENSION,
                 "name")) {
-            throw new ParsingException("The property name must be unique");
+            throw new ParsingException("The dimension name must be unique");
         }
 
     }
