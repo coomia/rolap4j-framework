@@ -29,10 +29,7 @@ import org.rolap4j.utils.PropertyUtil;
 import org.rolap4j.utils.StringUtil;
 import org.rolap4j.utils.XmlDocumentUtil;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * <p>This is an implementation of {@link CatalogParser} that parses the catalog (mapping file) that describes
@@ -92,7 +89,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
         schema.addDimensions(loadDimensions(document));
 
         // Loading cubes ...
-        schema.addCubes(loadCubes(document));
+        schema.addCubes(loadCubes(document, schema));
 
         return schema;
     } // end parseCatalog( ...
@@ -104,8 +101,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
      * @return
      * @see Cube
      */
-    // TODO : table, dimensionUsage, Measures
-    private List<Cube> loadCubes(final Document document) throws ParsingException {
+    private List<Cube> loadCubes(final Document document, Schema schema) throws ParsingException {
 
         log.debug("Loading all cubes from the schema ...");
         List<Cube> cubes = new ArrayList<>();
@@ -115,22 +111,24 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
         String worker;
         int sprinter = 1;
         for (Node cubeNode : cubeNodes) {
-            Cube cube = new Cube();
+            final Cube cube = new Cube();
 
+            // Set the cube name
             worker = cubeNode.valueOf("@name");
             if (StringUtil.isEmpty(worker)) {
-                throw new ParsingException("The cube number {} must have a name attribute defined" + sprinter);
+                throw new ParsingException("The cube number " + sprinter + " must have a name attribute defined" );
             }
-
             checkCubeAvailability(worker, notAvailableCubeNames);
             cube.setName(worker);
 
-            // table
-            //worker = cubeNode.selectSingleNode("Table");
+            // Set the table name
+            cube.setTableName(getCubeTableName(cubeNode, cube.getName()));
 
-            // DimensionUsage
+            // Set dimensions
+            cube.addDimensions(getDimensions(cubeNode, schema));
 
-            // Measure
+            // Set measures
+            cube.addMeasures(getMeasures(cubeNode, schema));
 
             cubes.add(cube);
 
@@ -138,6 +136,92 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
             sprinter++;
         }
         return cubes;
+    }
+
+
+    /**
+     * @param cubeNode
+     * @param schema
+     * @return
+     * @throws ParsingException
+     */
+    private Collection<Measure> getMeasures(Node cubeNode, Schema schema) throws ParsingException {
+
+        List<Measure> measures = new ArrayList<>();
+        List<Node> measureNodes = cubeNode.selectNodes("Measure");
+        String worker;
+        for (Node measureNode : measureNodes) {
+
+            worker = measureNode.valueOf("@name");
+            if (StringUtil.isEmpty(worker)) {
+                throw new ParsingException("The name of the measure attribute must be specified");
+            }
+            Measure measure = new Measure();
+            measure.setName(worker);
+            measures.add(measure);
+        }
+        return measures;
+    }
+
+    /**
+     * @param cubeNode
+     * @param schema
+     * @return
+     * @throws ParsingException
+     */
+    private Collection<Dimension> getDimensions(Node cubeNode, final Schema schema) throws ParsingException {
+
+        List<Dimension> dimensions = new ArrayList<>();
+        List<Node> dimensionNodes = cubeNode.selectNodes("DimensionUsage");
+        String worker;
+
+        for (Node dimensionNode : dimensionNodes) {
+
+            worker = dimensionNode.valueOf("@name");
+            if (StringUtil.isEmpty(worker)) {
+                throw new ParsingException("The name of the dimensionUsage attribute must be specified");
+            }
+
+            if (!schema.containsDimension(worker)) {
+                StringBuilder names = new StringBuilder();
+                for (Iterator<String> iter = schema.getDimensions().keySet().iterator(); iter.hasNext(); ) {
+                    names.append(iter.next()).append(", ");
+                }
+                if (names.length() > 0) {
+                    names.setLength(names.length() - 1);
+                }
+                throw new ParsingException("Unexpected dimension found : " + worker +
+                        " when one of the following dimensions is expected : " + names);
+
+            }
+            dimensions.add(schema.getDimension(worker));
+        }
+        return dimensions;
+    }
+
+    /**
+     * Get the table name that corresponds to the cube
+     *
+     * @param cubeNode
+     * @param cubeName
+     * @return table name that corresponds to the cube
+     * @throws ParsingException
+     * @see Cube
+     */
+    private String getCubeTableName(final Node cubeNode, final String cubeName) throws ParsingException {
+
+        final Node tableNode = cubeNode.selectSingleNode("Table");
+        final String exceptionMessage = "The cube " + cubeName + " must specify a corresponding table";
+
+        if (null == tableNode) {
+            throw new ParsingException(exceptionMessage);
+        }
+
+        final String name = tableNode.valueOf("@name");
+        if (StringUtil.isEmpty(name)) {
+            throw new ParsingException(exceptionMessage);
+        }
+        return name;
     }
 
     /**
@@ -242,7 +326,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
             hierarchy.addLevels(loadLevels(hierarchyNode, hierarchy.getName(), dimensionName));
 
             hierarchies.add(hierarchy);
-            log.debug("\tHierarchy {} added to {} hierarchies", dimensionName);
+            log.debug("\tHierarchy {} added to {} hierarchies", hierarchy.getName(), dimensionName);
         }
 
         return hierarchies;
@@ -263,24 +347,24 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
 
         log.debug("Loading all {} levels ...", hierarchyName);
         List<Level> levels = new ArrayList<>();
-        List<Node> levelNodes = hierarchyNode.selectNodes("Level");
-
+        final List<Node> levelNodes = hierarchyNode.selectNodes("Level");
         String worker;
         int sprinter = 1;
+
         for (Node levelNode : levelNodes) {
-            Level level = new Level();
 
             worker = levelNode.valueOf("@name");
+
             if (StringUtil.isEmpty(worker)) {
 
                 StringBuilder exceptionMessage = new StringBuilder();
-
                 exceptionMessage.append("The name attribute is missing for the #").append(sprinter)
                         .append(" level of the ").append(hierarchyName).append(" hierarchy of the ")
                         .append(dimensionName).append(" dimension ");
 
                 throw new ParsingException(exceptionMessage.toString());
             }
+            Level level = new Level();
             level.setName(worker);
 
             worker = levelNode.valueOf("@column");
@@ -299,7 +383,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
         }
         return levels;
 
-    }
+    } // end loadLevels( ...
 
     /**
      * @param levelNode
@@ -338,7 +422,7 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
             properties.add(property);
         }
         return properties;
-    }
+    } // loadProperties( ...
 
 
     /**
@@ -365,12 +449,10 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
     private void checkUniqueMembersValidity(String uniqueMembersValue, final String levelName) throws ParsingException {
 
         if (StringUtil.isEmpty(uniqueMembersValue)) {
-
             throw new ParsingException("The uniqueMembers attribute is required for the " + levelName + " level");
         }
 
         if ("true".equalsIgnoreCase(uniqueMembersValue) || "false".equalsIgnoreCase(uniqueMembersValue)) {
-
             return; // valid hasAll property ...
         }
 
@@ -419,7 +501,6 @@ public class Dom4jBasedCatalogParser extends AbstractCatalogParser {
         exceptionMessage.append("Expected value of the 'hasAll' property of ").append(dimensionName)
                 .append(" element is one of the following :");
         exceptionMessage.append(" (true, false), but the following value was found : ").append(hasAll);
-
 
         throw new ParsingException(exceptionMessage.toString());
     }

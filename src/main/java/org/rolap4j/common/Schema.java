@@ -243,6 +243,22 @@ public class Schema extends Element {
     }
 
     /**
+     * Can be used to determine if the specified dimension exists in the current schema
+     *
+     * @param dimensionName
+     * @return {@code true} if the specified dimension exists in the current schema
+     * @see Dimension
+     */
+    public boolean containsDimension(final String dimensionName) {
+
+        if (null == dimensionName) {
+            return false;
+        }
+        return dimensions.containsKey(dimensionName);
+    }
+
+
+    /**
      * Can be used to determine if the specified cube exists in the current schema
      *
      * @param cube
