@@ -16,22 +16,45 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
-
-import lombok.Data;
-import lombok.ToString;
+package org.rolap4j.utils;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 14/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public final class StringUtil {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    private StringUtil() {
 
-    private String type;
+        throw new AssertionError();
+    }
+
+    /**
+     * Check if the <tt>value</tt> is empty
+     *
+     * @param value Value to be checked
+     * @return {@code true} if the value is empty
+     * @see #isNotEmpty(String)
+     */
+    public static boolean isEmpty(final String value) {
+
+        return value == null || value.trim().isEmpty();
+    }
+
+
+    /**
+     * Check if the <tt>value</tt> is not empty
+     *
+     * @param value Value to be checked
+     * @return {@code true} if the value is not empty
+     * @see #isEmpty(String)
+     */
+    public static boolean isNotEmpty(final String value) {
+
+        return !isEmpty(value);
+    }
+
+
 }

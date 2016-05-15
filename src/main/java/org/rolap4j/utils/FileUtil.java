@@ -16,22 +16,30 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.utils;
 
-import lombok.Data;
-import lombok.ToString;
+import java.io.File;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 14/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public final class FileUtil {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    /**
+     * Verify if a specified file exists
+     *
+     * @param filePath Path to the file to be verified
+     * @return {@code true} if the specified file exists
+     */
+    public static final boolean fileExists(final String filePath) {
 
-    private String type;
+        return new File(filePath).exists();
+    }
+
+    private FileUtil() {
+        throw new AssertionError();
+    }
 }

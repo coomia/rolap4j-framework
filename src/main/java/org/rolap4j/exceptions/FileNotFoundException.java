@@ -16,22 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
-
-import lombok.Data;
-import lombok.ToString;
+package org.rolap4j.exceptions;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 14/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public class FileNotFoundException extends Rolap4jException {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    public FileNotFoundException(final String filePath) {
+        super("Cannot find the following file : " + filePath);
+    }
 
-    private String type;
+    public FileNotFoundException() {
+        super("A file is missing and cannot be read by Rolap4j Framework");
+    }
 }

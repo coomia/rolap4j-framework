@@ -23,6 +23,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -70,22 +71,12 @@ public class Level extends MappingElement {
      *
      * @param someProperties
      */
-    public void addAllProperties(Set<Property> someProperties) {
+    public void addProperties(Collection<Property> someProperties) {
 
         log.debug("Adding some properties to the level {}", this);
         properties.addAll(someProperties);
     }
 
-    /**
-     * Add some properties to the level element
-     *
-     * @param someProperties
-     */
-    public void addAllProperties(List<Property> someProperties) {
-
-        log.debug("Adding some properties to the level {}", this);
-        properties.addAll(someProperties);
-    }
 
     /**
      * Remove all properties of the level element

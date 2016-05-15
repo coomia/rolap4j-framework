@@ -16,22 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
-
-import lombok.Data;
-import lombok.ToString;
+package org.rolap4j.exceptions;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 14/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public class Rolap4jException extends Exception {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    private static final String EXCEPTION_MARKER = "Rolap4j Framework Exception Occured";
 
-    private String type;
+    public Rolap4jException() {
+        super(EXCEPTION_MARKER);
+    }
+
+    public Rolap4jException(String message) {
+        super(EXCEPTION_MARKER + " : " + message);
+    }
+
+    public Rolap4jException(String message, Throwable cause) {
+        super(EXCEPTION_MARKER + " : " + message, cause);
+    }
+
 }

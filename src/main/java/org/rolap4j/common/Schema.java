@@ -21,6 +21,7 @@ package org.rolap4j.common;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,9 @@ import java.util.Map;
 @Slf4j
 @Getter
 public class Schema extends Element {
+
+    // If no name is specified in the mapping file, the following name will be used
+    public static final String DEFAULT_NAME = "defaultSchema";
 
     protected Map<String, Dimension> dimensions = new HashMap<String, Dimension>();
 
@@ -76,11 +80,25 @@ public class Schema extends Element {
         log.info("The {} {} is removed from the schema {}", elementTypeName, elementName, name == null ? "" : name);
     }
 
+    private void addElements(Collection<? extends Element> elements, Map elementsMap, final String elementTypeName) {
+
+        for (Element element : elements) {
+            addElement(element, elementsMap, elementTypeName);
+        }
+    }
+
+    private void removeElements(Collection<? extends Element> elements, Map elementsMap, final String elementTypeName) {
+
+        for (Element element : elements) {
+            removeElement(element, elementsMap, elementTypeName);
+        }
+    }
 
     /**
-     * Add and map a dimensin in the current schema.
+     * Add and map a dimension in the current schema.
      *
      * @param dimension
+     * @see Dimension
      */
     public void addDimension(final Dimension dimension) {
 
@@ -88,13 +106,37 @@ public class Schema extends Element {
     }
 
     /**
+     * Add and map some dimensions in the current schema
+     *
+     * @param someDimensions
+     */
+    public void addDimensions(Collection<Dimension> someDimensions) {
+
+        addElements(someDimensions, dimensions, ElementType.DIMENSION.getValue());
+    }
+
+    /**
      * Remove a dimension from the current schema.
      *
      * @param dimension the dimension to be removed from the current schema.
+     * @see Schema
+     * @see Dimension
      */
     public void removeDimension(final Dimension dimension) {
 
         removeElement(dimension, dimensions, ElementType.DIMENSION.getValue());
+    }
+
+    /**
+     * Remove some dimensions from the current schema
+     *
+     * @param someDimensions
+     * @see Schema
+     * @see Dimension
+     */
+    public void removeDimensions(Collection<Dimension> someDimensions) {
+
+        removeElements(someDimensions, dimensions, ElementType.DIMENSION.getValue());
     }
 
     /**
@@ -112,6 +154,7 @@ public class Schema extends Element {
      *
      * @param dimensionName Name of the dimension to be retrieved
      * @return The instance of {@link Dimension} corresponding of the specified name from the current schema
+     * @see Dimension
      */
     public Dimension getDimension(final String dimensionName) {
 
@@ -122,6 +165,7 @@ public class Schema extends Element {
      * Add and map a cube in the current schema.
      *
      * @param cube
+     * @see Cube
      */
     public void addCube(final Cube cube) {
 
@@ -129,13 +173,36 @@ public class Schema extends Element {
     }
 
     /**
+     * Add and map some cubes in the current schema.
+     *
+     * @param someCubes
+     * @see Cube
+     */
+    public void addCubes(Collection<Cube> someCubes) {
+
+        addElements(someCubes, cubes, ElementType.CUBE.getValue());
+    }
+
+    /**
      * Remove a cube from the current schema.
      *
      * @param cube the dimension to be removed from the current schema.
+     * @see Cube
      */
     public void removeCube(final Cube cube) {
 
         removeElement(cube, cubes, ElementType.CUBE.getValue());
+    }
+
+    /**
+     * Remove some cubes from the current schema.
+     *
+     * @param someCubes
+     * @see Cube
+     */
+    public void removeCubes(Collection<Cube> someCubes) {
+
+        removeElements(someCubes, cubes, ElementType.CUBE.getValue());
     }
 
     /**
@@ -153,6 +220,7 @@ public class Schema extends Element {
      *
      * @param cubeName Name of the cube to be retrieved
      * @return The instance of {@link Cube} corresponding of the specified name from the current schema
+     * @see Cube
      */
     public Cube getCube(final String cubeName) {
 
@@ -164,6 +232,7 @@ public class Schema extends Element {
      *
      * @param dimension
      * @return {@code true} if the specified dimension exists in the current schema
+     * @see Dimension
      */
     public boolean containsDimension(final Dimension dimension) {
 
@@ -178,6 +247,7 @@ public class Schema extends Element {
      *
      * @param cube
      * @return {@code true} if the specified cube exists in the current schema
+     * @see Cube
      */
     public boolean containsCube(final Cube cube) {
 

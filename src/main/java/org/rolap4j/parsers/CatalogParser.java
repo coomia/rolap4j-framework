@@ -16,22 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
 
-import lombok.Data;
-import lombok.ToString;
+package org.rolap4j.parsers;
+
+import org.rolap4j.common.Schema;
+import org.rolap4j.exceptions.FileNotFoundException;
+import org.rolap4j.exceptions.ParsingException;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 14/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public interface CatalogParser {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    /**
+     * Load data from the catalog and build an instance of {@link Schema}.
+     *
+     * @return The {@link Schema} corresponding of the catalog
+     * @throws FileNotFoundException The catalog file is not found
+     * @throws ParsingException      An error occurred while parsing the catalog file
+     */
+    public abstract Schema parseCatalog() throws FileNotFoundException, ParsingException;
 
-    private String type;
 }

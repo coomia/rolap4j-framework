@@ -16,22 +16,33 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.utils;
 
-import lombok.Data;
-import lombok.ToString;
+import org.rolap4j.common.Property;
+import org.rolap4j.common.PropertyType;
 
 /**
- * Created by andriantomanga on 11/05/16.
- *
+ * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public final class PropertyUtil {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    private PropertyUtil() {
 
-    private String type;
+        throw new AssertionError();
+    }
+
+    public static String getPropertyType(final String type) {
+
+        if (StringUtil.isEmpty(type)) {
+            return Property.DEFAULT_TYPE;
+        }
+        for (PropertyType propertyType : PropertyType.values()) {
+            if (propertyType.getValue().equalsIgnoreCase(type)) {
+                return propertyType.getValue();
+            }
+        }
+        return Property.DEFAULT_TYPE;
+    }
 }

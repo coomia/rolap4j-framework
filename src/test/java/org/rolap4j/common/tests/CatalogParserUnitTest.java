@@ -16,22 +16,34 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.common.tests;
 
-import lombok.Data;
-import lombok.ToString;
+import org.junit.Test;
+import org.rolap4j.common.Schema;
+import org.rolap4j.exceptions.FileNotFoundException;
+import org.rolap4j.exceptions.ParsingException;
+import org.rolap4j.parsers.CatalogParser;
+import org.rolap4j.parsers.Dom4jBasedCatalogParser;
 
 /**
- * Created by andriantomanga on 11/05/16.
- *
+ * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public class CatalogParserUnitTest {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    private static final String FILE_PATH = "magasin.xml";
 
-    private String type;
+    @Test public void parsingTest() {
+
+        CatalogParser parser = new Dom4jBasedCatalogParser(FILE_PATH);
+        try {
+            Schema schema = parser.parseCatalog();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParsingException e) {
+            e.printStackTrace();
+        }
+    }
 }

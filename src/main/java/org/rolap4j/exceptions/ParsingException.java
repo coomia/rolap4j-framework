@@ -16,22 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
-
-import lombok.Data;
-import lombok.ToString;
+package org.rolap4j.exceptions;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 14/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public class ParsingException extends ConfigurationException {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
 
-    private String type;
+    public ParsingException(final String filePath) {
+        super("Exception occurred when parsing the following file : " + filePath);
+    }
+
+    public ParsingException(final String filePath, final String message) {
+        super("Exception occurred when parsing the following file : " + filePath + "\n" + message);
+    }
+
+    public ParsingException() {
+        super("Exception occurred when parsing a file");
+    }
 }

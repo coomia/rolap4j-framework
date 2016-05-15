@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schema name="Magasin">
+
+	<Dimension name="Client">
+		<Hierarchy name="Client" hasAll="true" primaryKey="client_id"
+			allMemberName="Tous les clients">
+			<Table name="client" />
+			<Level name="Type client" column="client_type" uniqueMembers="true" />
+			<Level name="Nom client" column="client_nom" uniqueMembers="true" />
+		</Hierarchy>
+	</Dimension>
+
+	<Dimension name="Lieu">
+		<Hierarchy name="Lieu" hasAll="true" primaryKey="lieu_id"
+			allMemberName="Tous les lieux">
+			<Table name="lieu" />
+			<Level name="Pays" column="lieu_pays" uniqueMembers="true" />
+			<Level name="Région" column="lieu_region" uniqueMembers="true" />
+			<Level name="Ville" column="lieu_ville" uniqueMembers="true" />
+		</Hierarchy>
+	</Dimension>
+
+	<Dimension name="Temps">
+		<Hierarchy name="Temps" hasAll="false" primaryKey="temps_id"
+			allMemberName="Tous les temps">
+			<Table name="temps" />
+			<Level name="Annee" column="temps_annee" uniqueMembers="true" />
+			<Level name="Trimestre" column="temps_trimestre" uniqueMembers="false" />
+			<Level name="Mois" column="temps_mois" uniqueMembers="false" />
+			<Level name="Jour" column="temps_jour_mois" uniqueMembers="false" />
+		</Hierarchy>
+		<Hierarchy hasAll="true" primaryKey="temps_id" name="Semaine"
+			allMemberName="Tous les temps">
+			<Table name="temps" />
+			<Level name="Annee" column="temps_annee" uniqueMembers="true" />
+			<Level name="Mois" column="temps_mois" uniqueMembers="false" />
+			<Level name="Jour de la semaine" column="temps_jour_semaine"
+				uniqueMembers="false" />
+		</Hierarchy>
+	</Dimension>
+
+	<Dimension name="Produit">
+		<Hierarchy name="Produit" hasAll="false" primaryKey="produit_id"
+			allMemberName="Tous les produits">
+			<Table name="produit" />
+			<Level name="Categorie" column="produit_category"
+				uniqueMembers="true" />
+			<Level name="Marque" column="produit_marque" uniqueMembers="true" />
+			<Level name="Couleur" column="produit_couleur" uniqueMembers="false" />
+			<Level name="Nom du produit" column="produit_nom"
+				uniqueMembers="false" />
+		</Hierarchy>
+	</Dimension>
+
+	<Dimension name="Fournisseur">
+		<Hierarchy hasAll="true" primaryKey="fournisseur_id" name="Fournisseur"
+			allMemberName="Tous les fournisseurs">
+			<Table name="fournisseur" />
+			<Level name="Type fournisseur" column="fournisseur_type"
+				uniqueMembers="true" />
+			<Level name="Nom fournisseur" column="fournisseur_nom"
+				uniqueMembers="true">
+				<Property name="Pays du fournisseur" column="fournisseur_pays" />
+				<Property name="Région du fournisseur" column="fournisseur_region" />
+				<Property name="Ville du fournisseur" column="fournisseur_ville" />
+			</Level>
+		</Hierarchy>
+	</Dimension>
+
+	<Cube name="Ventes" defaultMeasure="Quantite vendue">
+		<Table name="ventes" />
+		<DimensionUsage name="Client" source="Client"
+			foreignKey="client_id" />
+		
+		<DimensionUsage name="Produit" source="Produit"
+			foreignKey="produit_id" />
+		
+		<DimensionUsage name="Lieu" source="Lieu" foreignKey="lieu_id" />
+		
+		<DimensionUsage name="Temps" source="Temps" foreignKey="temps_id" />
+		
+		<Measure name="Quantite vendue" column="quantite" aggregator="count"
+			formatString="Standard" >
+			<CalculatedMemberProperty name="MEMBER_ORDINAL" value="1"/>
+		</Measure>
+		
+		<Measure name="Prix moyen" column="prix_unitaire" aggregator="avg"
+			formatString="#,###.00 DT" >
+			<CalculatedMemberProperty name="MEMBER_ORDINAL" value="2"/>
+		</Measure>
+		
+		
+		<Measure name="Payement" column="type_payement" aggregator="count"
+			formatString="Standard" >
+			<CalculatedMemberProperty name="MEMBER_ORDINAL" value="3"/>
+		</Measure>
+
+		<Measure name="Nombre client" column="client_id" aggregator="distinct-count" formatString="#,###">
+		    <CalculatedMemberProperty name="MEMBER_ORDINAL" value="5"/>
+		</Measure>
+
+		<Measure name="CA" aggregator="sum" formatString="#,###.00 DT">
+		    <MeasureExpression>
+		        <SQL dialect="postgres">
+					"ventes"."quantite" * "ventes"."prix_unitaire"
+      			</SQL>
+      			<SQL dialect="mysql">
+					`ventes`.`quantite` * `ventes`.`prix_unitaire`
+      			</SQL>
+		    	<SQL dialect="generic">
+				&quot;ventes&quot;.&quot;quantite&quot; * &quot;ventes&quot;.&quot;prix_unitaire&quot;
+      			</SQL>
+    		</MeasureExpression>
+		</Measure>
+	</Cube>
+
+	
+	<Cube name="Achats" defaultMeasure="Quantite achetee">
+		<Table name="achats" />
+		<DimensionUsage name="Fournisseur" source="Fournisseur"
+			foreignKey="fournisseur_id" />
+		<DimensionUsage name="Produit" source="Produit"
+			foreignKey="produit_id" />
+		<DimensionUsage name="Lieu" source="Lieu" foreignKey="lieu_id" />
+		<DimensionUsage name="Temps" source="Temps" foreignKey="temps_id" />
+		<Measure name="Quantite achetee" column="quantite" aggregator="sum"
+			formatString="Standard" />
+		<Measure name="Prix" column="prix_unitaire" aggregator="sum"
+			formatString="#,###.00" />
+	</Cube>
+
+</Schema>

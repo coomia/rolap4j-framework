@@ -16,22 +16,31 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.parsers;
 
-import lombok.Data;
-import lombok.ToString;
+import org.rolap4j.common.Schema;
+import org.rolap4j.exceptions.FileNotFoundException;
+import org.rolap4j.exceptions.ParsingException;
+
+import javax.annotation.Generated;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 14/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public abstract class AbstractCatalogParser implements CatalogParser {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    protected String catalogFilePath; // path to the catalog file to parse ...
 
-    private String type;
+    /**
+     * @param catalogFilePath path to the catalog file (please see the documention)
+     */
+    public AbstractCatalogParser(String catalogFilePath) {
+
+        this.catalogFilePath = catalogFilePath;
+    }
+
+
 }

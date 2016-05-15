@@ -18,6 +18,7 @@
  */
 package org.rolap4j.common.tests;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.rolap4j.common.Cube;
 import org.rolap4j.common.Schema;
@@ -30,6 +31,7 @@ import org.rolap4j.common.Schema;
  */
 public class SchemaUnitTest {
 
+    @Ignore
     @Test
     public void testAddElement() {
 

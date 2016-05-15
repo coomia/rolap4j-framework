@@ -18,20 +18,26 @@
  */
 package org.rolap4j.common;
 
-import lombok.Data;
-import lombok.ToString;
+import lombok.Getter;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 15/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+@Getter
+public enum PropertyType {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
 
-    private String type;
+    STRING("String"), INTEGER("Integer"), BOOLEAN("Boolean"), DATE("Date"), TIME("Time"), TIMESTAMP("Timestamp"),
+
+    NUMERIC("Numeric");
+
+    private String value;
+
+    PropertyType(String value) {
+
+        this.value = value;
+    }
 }

@@ -16,22 +16,44 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.utils;
 
-import lombok.Data;
-import lombok.ToString;
+import java.util.Collection;
 
 /**
- * Created by andriantomanga on 11/05/16.
+ * Created by andriantomanga on 15/05/16.
  *
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-@ToString (callSuper = true)
-public class Property extends MappingElement {
+public final class CollectionUtil {
 
-    public static final String DEFAULT_TYPE = PropertyType.NUMERIC.getValue();
+    private CollectionUtil() {
 
-    private String type;
+        throw new AssertionError();
+    }
+
+    /**
+     * Check if the collection is empty
+     *
+     * @param collection
+     * @return {@code true} if the collection is empty
+     * @see #isNotEmpty(Collection)
+     */
+    public static boolean isEmpty(Collection collection) {
+
+        return collection == null || collection.isEmpty();
+    }
+
+    /**
+     * Check if the collection is not empty
+     *
+     * @param collection
+     * @return {@code true} if the collection is not empty
+     * @see #isEmpty(Collection)
+     */
+    public static boolean isNotEmpty(Collection collection) {
+
+        return !isEmpty(collection);
+    }
 }
