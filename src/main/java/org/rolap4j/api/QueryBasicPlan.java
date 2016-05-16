@@ -29,6 +29,17 @@ import java.util.Collection;
  */
 public interface QueryBasicPlan {
 
+
+    /**
+     * This method allow you to connect to your data warehouse and select a cube with which you want to work
+     *
+     * @param cube Name of the cube with which we want to work
+     * @return A query builder
+     * @see org.rolap4j.api.Query.QueryBuilder
+     * @see org.rolap4j.common.Cube
+     */
+    public Query.QueryBuilder fromCube(final String cube) throws Rolap4jException;
+
     /**
      * Sets an element determining a vertical axis of projection. <br />
      * The following code projects on column axe the names and types of providers on monthly purchases :
@@ -80,18 +91,37 @@ public interface QueryBasicPlan {
 
     //-----------------------------------------------------------------------------------------------------
     // TODO : write good documentation ...
+
     /**
-     *
      * @param rows
-     * @return
+     * @return A query builder
+     * @see org.rolap4j.api.Query.QueryBuilder
      */
     public Query.QueryBuilder useRows(Collection<String> rows);
 
+    /**
+     * @param filter
+     * @return A query builder
+     * @see org.rolap4j.api.Query.QueryBuilder
+     */
     public Query.QueryBuilder userFilter(final String filter);
 
+    /**
+     * @param filters
+     * @return A query builder
+     * @see org.rolap4j.api.Query.QueryBuilder
+     */
     public Query.QueryBuilder userFilter(Collection<String> filters);
 
-    public Query build() throws Rolap4jException;
+    /**
+     * Set the MultiDimensional eXpressions (MDX) query to execute.
+     * For more informations, please see : <a href="https://en.wikipedia.org/wiki/MultiDimensional_eXpressions">the wiki</a>
+     *
+     * @param mdxQuery
+     * @return A query builder
+     * @see org.rolap4j.api.Query.QueryBuilder
+     */
+    public Query.QueryBuilder setMdx(final String mdxQuery);
 
 
 }

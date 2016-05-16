@@ -16,21 +16,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.common.tests;
 
-import lombok.Data;
-import lombok.ToString;
-
-import java.io.Serializable;
+import org.junit.Test;
+import org.olap4j.CellSet;
+import org.rolap4j.api.Query;
+import org.rolap4j.exceptions.Rolap4jException;
 
 /**
- * Created by andriantomanga on 12/05/16.
- *
+ * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-public abstract class Element implements Serializable {
+public class QueryBuilderUnitTest {
 
-    protected String name;
+    @Test
+    public void simpleQueryCreationTest() {
+
+        try {
+            Query query = new Query.QueryBuilder().fromCube("Sales")
+                    .useColumn("City").useColumn("Town")
+                    .useRow("Provider")
+                    .userFilter("Quantity")
+                    .build();
+
+            CellSet results = query.executeQuery();
+
+        } catch (Rolap4jException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

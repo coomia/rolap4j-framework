@@ -16,21 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
 
-import lombok.Data;
-import lombok.ToString;
+package org.rolap4j.connectivity;
 
-import java.io.Serializable;
+import org.rolap4j.exceptions.Rolap4jException;
 
 /**
- * Created by andriantomanga on 12/05/16.
- *
+ * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-public abstract class Element implements Serializable {
+public interface ConnectionProvider {
 
-    protected String name;
+    /**
+     * Provides a connection instance to the data source
+     *
+     * @return A connection instance to the data source
+     * @throws Rolap4jException
+     */
+    public abstract java.sql.Connection getConnection() throws Rolap4jException;
 }

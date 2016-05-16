@@ -16,21 +16,34 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common;
+package org.rolap4j.api;
 
-import lombok.Data;
-import lombok.ToString;
+import org.olap4j.CellSet;
+import org.olap4j.OlapConnection;
+import org.rolap4j.connectivity.RolapConnectionProvider;
+import org.rolap4j.exceptions.Rolap4jException;
 
-import java.io.Serializable;
+import java.sql.SQLException;
 
 /**
- * Created by andriantomanga on 12/05/16.
- *
+ * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-@Data
-public abstract class Element implements Serializable {
+public final class mdxQueryExecutor {
 
-    protected String name;
+    public static CellSet executeQuery(final String mdxQuery) throws Rolap4jException {
+
+        try {
+            final OlapConnection olapConnection = new RolapConnectionProvider().getConnection().unwrap(OlapConnection.class);
+            return olapConnection.createStatement().executeOlapQuery(mdxQuery);
+        } catch (SQLException e) {
+            throw new Rolap4jException(e.getMessage());
+        }
+    }
+
+    private mdxQueryExecutor() {
+        
+        throw new AssertionError();
+    }
 }

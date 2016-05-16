@@ -272,4 +272,19 @@ public class Schema extends Element {
         }
         return cubes.containsKey(cube.getName());
     }
+
+    /**
+     * Can be used to determine if the specified cube exists in the current schema
+     *
+     * @param cubeName
+     * @return {@code true} if the specified cube exists in the current schema
+     * @see Cube
+     */
+    public boolean containsCube(final String cubeName) {
+
+        if (null == cubeName) {
+            return false;
+        }
+        return cubes.containsKey(cubeName);
+    }
 }
