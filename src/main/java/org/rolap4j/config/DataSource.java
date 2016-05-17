@@ -121,10 +121,10 @@ public class DataSource {
                 allIsOk = false;
             }
 
-            if (StringUtil.isEmpty(password)) {
-                messageBuilder.append("\n\tPassword is required for datasource");
-                allIsOk = false;
-            }
+//            if (StringUtil.isEmpty(password)) {
+//                messageBuilder.append("\n\tPassword is required for datasource");
+//                allIsOk = false;
+//            }
 
             if (StringUtil.isEmpty(uri)) {
                 messageBuilder.append("\n\tUri is required for datasource");

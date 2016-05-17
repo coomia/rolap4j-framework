@@ -16,37 +16,42 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.rolap4j.common.tests;
+package org.rolap4j.utils;
 
-import org.junit.Test;
-import org.rolap4j.common.Schema;
-import org.rolap4j.exceptions.FileNotFoundException;
-import org.rolap4j.exceptions.ParsingException;
-import org.rolap4j.parsers.CatalogParser;
-import org.rolap4j.parsers.Dom4jBasedCatalogParser;
-
-import java.io.File;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-public class CatalogParserUnitTest {
+public final class PropertiesUtil {
 
+    private PropertiesUtil() {
+        throw new AssertionError();
+    }
 
-    private static final String FILE_PATH = "rolap4j-framework-demo-resources" + File.separator + "magasin.xml";
-
-    @Test public void parsingTest() {
-
-        CatalogParser parser = new Dom4jBasedCatalogParser(FILE_PATH);
-        try {
-            Schema schema = parser.parseCatalog();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (ParsingException e) {
-            e.printStackTrace();
+    /**
+     *
+     * @param value
+     * @return
+     */
+    public static String resolveEnvVariable(String value) {
+        if (null == value) {
+            return null;
         }
+
+        Pattern p = Pattern.compile("\\$\\{(\\w+)\\}|\\$(\\w+)");
+        Matcher m = p.matcher(value);
+        StringBuffer sb = new StringBuffer();
+        while (m.find()) {
+            String envVarName = null == m.group(1) ? m.group(2) : m.group(1);
+            String envVarValue = System.getenv(envVarName);
+            m.appendReplacement(sb, null == envVarValue ? "" : Matcher.quoteReplacement(envVarValue));
+        }
+        m.appendTail(sb);
+        return sb.toString();
     }
 }

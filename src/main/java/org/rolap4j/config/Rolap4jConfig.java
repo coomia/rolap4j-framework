@@ -19,12 +19,14 @@
 package org.rolap4j.config;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.rolap4j.common.*;
 import org.rolap4j.exceptions.ConfigurationException;
 import org.rolap4j.exceptions.Rolap4jException;
 import org.rolap4j.parsers.CatalogParser;
 import org.rolap4j.parsers.Dom4jBasedCatalogParser;
+import org.rolap4j.utils.PropertiesUtil;
 import org.rolap4j.utils.StringUtil;
 
 import java.io.File;
@@ -43,7 +45,16 @@ import java.util.Properties;
 @Slf4j
 public final class Rolap4jConfig /* @singleton */ {
 
-    public static final String DATAWAREHOUSE_CONFIGURATION_FILE_NAME = "datawarehouse.properties";
+    public static final String DEFAULT_CONFIGURATION_FILE = "datawarehouse.properties";
+
+    /**
+     *
+     */
+    public static final String ROLAP4J_HOME_ENV_VAR_NAME = "ROLAP4J_HOME";
+
+    @Getter
+    @Setter
+    private String configurationFilePath = DEFAULT_CONFIGURATION_FILE;
 
     @Getter
     private DataSource dataSource;
@@ -100,7 +111,7 @@ public final class Rolap4jConfig /* @singleton */ {
 
         Properties rolapProperties = loadRolapProperties();
 
-        dataSource = new DataSource.DataSourceBuilder().withUsername(rolapProperties.getProperty("username")).withPassword(rolapProperties.getProperty("password")).withUri(rolapProperties.getProperty("uri")).withDriver(rolapProperties.getProperty("driver")).withCatalog(rolapProperties.getProperty("catalog")).withMdxVisible(rolapProperties.getProperty("show_mdx")).build();
+        dataSource = new DataSource.DataSourceBuilder().withUsername(rolapProperties.getProperty("username")).withPassword(rolapProperties.getProperty("password")).withUri(rolapProperties.getProperty("uri")).withDriver(rolapProperties.getProperty("driver")).withCatalog(PropertiesUtil.resolveEnvVariable(rolapProperties.getProperty("catalog"))).withMdxVisible(rolapProperties.getProperty("show_mdx")).build();
 
         catalogParser = new Dom4jBasedCatalogParser(dataSource.getCatalogPath());
         schema = catalogParser.parseCatalog();
@@ -114,19 +125,28 @@ public final class Rolap4jConfig /* @singleton */ {
 
         Properties rolapProperties = new Properties();
         try {
-            rolapProperties.load(new FileInputStream(DATAWAREHOUSE_CONFIGURATION_FILE_NAME));
+            // ROLAP4J_HOME_ENV_VAR_NAME
+            configurationFilePath = System.getenv(ROLAP4J_HOME_ENV_VAR_NAME);
+            if (StringUtil.isEmpty(configurationFilePath)) {
+                configurationFilePath = DEFAULT_CONFIGURATION_FILE;
+            } else {
+                configurationFilePath += File.separator + DEFAULT_CONFIGURATION_FILE;
+            }
+            log.debug("Defined configuration file : {}", configurationFilePath);
+
+            rolapProperties.load(new FileInputStream(configurationFilePath));
         } catch (IOException exceptionOne) {
-            InputStream inputStream = Rolap4jConfig.class.getClassLoader().getResourceAsStream(DATAWAREHOUSE_CONFIGURATION_FILE_NAME);
+            InputStream inputStream = Rolap4jConfig.class.getClassLoader().getResourceAsStream(configurationFilePath);
             log.debug("Loading data warehouse configuration in web context");
             try {
                 rolapProperties.load(inputStream);
             } catch (Exception exceptionTwo) {
-                File configFile = new File(DATAWAREHOUSE_CONFIGURATION_FILE_NAME);
+                File configFile = new File(configurationFilePath);
                 try {
                     if (configFile.createNewFile()) { // create an empty file if not exists ...
-                        log.debug("Data warehouse configuration parameters must be specified in the following file {}", DATAWAREHOUSE_CONFIGURATION_FILE_NAME);
+                        log.debug("Data warehouse configuration parameters must be specified in the following file {}", configurationFilePath);
                     } else {
-                        log.debug("Unable to create the following file {}", DATAWAREHOUSE_CONFIGURATION_FILE_NAME);
+                        log.debug("Unable to create the following file {}", configurationFilePath);
                     }
                 } catch (IOException exceptionThree) {
                     // do nothing ...

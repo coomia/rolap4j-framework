@@ -24,6 +24,8 @@ import org.rolap4j.common.Schema;
 import org.rolap4j.config.DataSource;
 import org.rolap4j.config.Rolap4jConfig;
 
+import java.io.File;
+
 /**
  * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
@@ -32,11 +34,16 @@ import org.rolap4j.config.Rolap4jConfig;
 @Slf4j
 public class ConfigUnitTest {
 
+    private static final String DW_PROPERTIES_FILE_PATH = "rolap4j-framework-demo-resources" + File.separator + "datawarehouse.properties";
+
 
     @Test
     public void testRolap4jConfiguration() {
 
         Rolap4jConfig config = Rolap4jConfig.getInstance();
+
+        config.setConfigurationFilePath(DW_PROPERTIES_FILE_PATH);
+
         Schema schema = config.getSchema();
 
         log.debug("----------------------------------------------------");
