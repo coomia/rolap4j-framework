@@ -48,11 +48,12 @@ public final class Rolap4jConfig /* @singleton */ {
     public static final String DEFAULT_CONFIGURATION_FILE = "datawarehouse.properties";
 
     /**
-     *
+     * Environment variable : <br />
+     * Rolap4J will search the <tt>datawarehouse.properties</tt> configuration file here first : ${ROLAP4J_HOME}/
+     * If does not exist, Rolap4j will search it in the current folder
      */
     public static final String ROLAP4J_HOME_ENV_VAR_NAME = "ROLAP4J_HOME";
 
-    @Getter
     @Setter
     private String configurationFilePath = DEFAULT_CONFIGURATION_FILE;
 
@@ -101,8 +102,7 @@ public final class Rolap4jConfig /* @singleton */ {
         return Rolap4jConfigHolder.INSTANCE;
     }
 
-    private Rolap4jConfig() {
-    }
+    private Rolap4jConfig() { }
 
     /**
      * @throws Rolap4jException
@@ -125,13 +125,18 @@ public final class Rolap4jConfig /* @singleton */ {
 
         Properties rolapProperties = new Properties();
         try {
-            // ROLAP4J_HOME_ENV_VAR_NAME
+
+            // By default, the configuration file sould be in the root folder
+            // But can be anywhere by using the 'ROLAP4J_HOME' variable environment
+
             configurationFilePath = System.getenv(ROLAP4J_HOME_ENV_VAR_NAME);
             if (StringUtil.isEmpty(configurationFilePath)) {
                 configurationFilePath = DEFAULT_CONFIGURATION_FILE;
             } else {
                 configurationFilePath += File.separator + DEFAULT_CONFIGURATION_FILE;
             }
+
+            // Loading the configuration file
             log.debug("Defined configuration file : {}", configurationFilePath);
 
             rolapProperties.load(new FileInputStream(configurationFilePath));
