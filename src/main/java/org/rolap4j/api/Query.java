@@ -23,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.olap4j.Axis;
 import org.olap4j.CellSet;
 import org.olap4j.OlapConnection;
+import org.olap4j.layout.RectangularCellSetFormatter;
 import org.olap4j.metadata.Cube;
 import org.olap4j.query.QueryAxis;
 import org.rolap4j.common.Schema;
@@ -32,6 +33,7 @@ import org.rolap4j.connectivity.RolapConnectionProvider;
 import org.rolap4j.exceptions.Rolap4jException;
 import org.rolap4j.utils.StringUtil;
 
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -90,6 +92,20 @@ public class Query {
         }
         return mdxQuery.getSelect().toString();
     }
+
+    /**
+     * Print the query results in console
+     */
+    public void printResults() throws Rolap4jException {
+
+        final RectangularCellSetFormatter formatter = new RectangularCellSetFormatter(false);
+
+        PrintWriter writer = new PrintWriter(System.out);
+        formatter.format(executeQuery(), writer);
+        writer.flush();
+
+    }
+
 
     /**
      * A class builder for {@link Query}.
@@ -280,6 +296,11 @@ public class Query {
          * @throws Rolap4jException
          */
         public Query build() throws Rolap4jException {
+
+            // specific query detected ...
+            if (StringUtil.isNotEmpty(mdx)) {
+                return new Query(this);
+            }
 
             // check if there is not error ...
             checkErrors();
