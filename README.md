@@ -18,6 +18,8 @@ Step 1 - Relational based data warehouse
 In ROLAP architecture, the data warehouse consists of several data marts. Each data mart often consists of one or more fact tables (measurements, metrics, ...) referencing any number of dimension tables (Used for projection).
 In computing, this representation is called 'Star schema'. 
 
+![Image not found](https://raw.githubusercontent.com/Andriantomanga/rolap4j-framework/master/rolap4j-star-schema.png "Star schema")
+
 Step 2 - Catalog
 ----------------
 
