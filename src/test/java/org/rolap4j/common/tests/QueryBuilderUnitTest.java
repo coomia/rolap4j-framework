@@ -18,6 +18,7 @@
  */
 package org.rolap4j.common.tests;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.olap4j.CellSet;
 import org.rolap4j.api.Query;
@@ -30,15 +31,12 @@ import org.rolap4j.exceptions.Rolap4jException;
  */
 public class QueryBuilderUnitTest {
 
+    @Ignore
     @Test
     public void simpleQueryCreationTest() {
 
         try {
-            Query query = new Query.QueryBuilder().fromCube("Sales")
-                    .useColumn("City").useColumn("Town")
-                    .useRow("Provider")
-                    .userFilter("Quantity")
-                    .build();
+            Query query = new Query.QueryBuilder().fromCube("Sales").useColumn("City").useColumn("Town").useRow("Provider").userFilter("Quantity").build();
 
             CellSet results = query.executeQuery();
 
@@ -48,4 +46,6 @@ public class QueryBuilderUnitTest {
 
 
     }
+
+
 }

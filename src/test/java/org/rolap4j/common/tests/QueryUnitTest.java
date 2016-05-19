@@ -48,6 +48,7 @@ public class QueryUnitTest {
 
     }
 
+    @Ignore
     @Test
     public void executeQueryTest2() {
 
@@ -74,5 +75,19 @@ public class QueryUnitTest {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void userColumn_label_valueTest() {
+
+        try {
+            Query query = new Query.QueryBuilder().fromCube("Ventes").useColumn("Produit", "Nom du produit")
+                    .useRow("Lieu").userFilter("Prix moyen").build();
+
+            query.printResults();
+
+        } catch (Rolap4jException e) {
+            e.printStackTrace();
+        }
     }
 }

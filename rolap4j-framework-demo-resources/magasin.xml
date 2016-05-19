@@ -40,15 +40,15 @@
 	</Dimension>
 
 	<Dimension name="Produit">
-		<Hierarchy name="Produit" hasAll="false" primaryKey="produit_id"
+		<Hierarchy name="Produit" hasAll="true" primaryKey="produit_id"
 			allMemberName="Tous les produits">
 			<Table name="produit" />
 			<Level name="Categorie" column="produit_category"
 				uniqueMembers="true" />
 			<Level name="Marque" column="produit_marque" uniqueMembers="true" />
-			<Level name="Couleur" column="produit_couleur" uniqueMembers="false" />
+			<Level name="Couleur" column="produit_couleur" uniqueMembers="true" />
 			<Level name="Nom du produit" column="produit_nom"
-				uniqueMembers="false" />
+				uniqueMembers="true" />
 		</Hierarchy>
 	</Dimension>
 

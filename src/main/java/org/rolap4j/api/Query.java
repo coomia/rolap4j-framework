@@ -125,6 +125,10 @@ public class Query {
 
         private List<String> errors = new ArrayList<>();
 
+        private Map<String, String> definedAttributes = new HashMap<String, String>();
+
+        private Map<String, List<String>> definedListAttributes = new HashMap<String, List<String>>();
+
         private String cubeName;
 
         private Schema schema;
@@ -199,6 +203,21 @@ public class Query {
             for (Iterator<String> iter = columns.iterator(); iter.hasNext(); ) {
                 useColumn(iter.next());
             }
+            return this;
+        }
+
+        /**
+         * {@inheritDoc}
+         *
+         * @param column Concerned dimension name
+         * @param value  Specific element among the elements of the dimension
+         * @return The current instance of {@link QueryBuilder}
+         */
+        @Override
+        public QueryBuilder useColumn(String column, String value) {
+
+            useColumn(column);
+            definedAttributes.put(column, value);
             return this;
         }
 
@@ -328,21 +347,21 @@ public class Query {
                 QueryAxis columnAxis = mdxQuery.getAxis(Axis.COLUMNS);
 
                 for (Iterator<String> iter = columnSets.iterator(); iter.hasNext(); ) {
-                    qbh.addCubeElementInQuery(schema, cube, iter.next(), columnAxis, mdxQuery);
+                    qbh.addCubeElementInQuery(schema, cube, iter.next(), columnAxis, mdxQuery, definedAttributes, definedListAttributes);
                 }
 
                 // Populate rows --------------------------------------------------------------
                 QueryAxis rowAxis = mdxQuery.getAxis(Axis.ROWS);
 
                 for (Iterator<String> iter = rowSets.iterator(); iter.hasNext(); ) {
-                    qbh.addCubeElementInQuery(schema, cube, iter.next(), rowAxis, mdxQuery);
+                    qbh.addCubeElementInQuery(schema, cube, iter.next(), rowAxis, mdxQuery, definedAttributes, definedListAttributes);
                 }
 
                 // Populate filters --------------------------------------------------------------
                 QueryAxis filterAxis = mdxQuery.getAxis(Axis.FILTER);
 
                 for (Iterator<String> iter = filterSets.iterator(); iter.hasNext(); ) {
-                    qbh.addCubeElementInQuery(schema, cube, iter.next(), filterAxis, mdxQuery);
+                    qbh.addCubeElementInQuery(schema, cube, iter.next(), filterAxis, mdxQuery, definedAttributes, definedListAttributes);
                 }
 
                 mdxQuery.validate();
