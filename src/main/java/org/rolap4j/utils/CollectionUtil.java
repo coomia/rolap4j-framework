@@ -34,25 +34,25 @@ public final class CollectionUtil {
     }
 
     /**
-     * Check if the collection is empty
+     * Check if the collection is empty or {@code null}
      *
      * @param collection
-     * @return {@code true} if the collection is empty
+     * @return {@code true} if the collection is empty or {@code null}
      * @see #isNotEmpty(Collection)
      */
-    public static boolean isEmpty(Collection collection) {
+    public static boolean isEmpty(Collection<?> collection) {
 
         return collection == null || collection.isEmpty();
     }
 
     /**
-     * Check if the collection is not empty
+     * Check if the collection is not empty or not {@code null}
      *
      * @param collection
-     * @return {@code true} if the collection is not empty
+     * @return {@code true} if the collection is not empty or not {@code null}
      * @see #isEmpty(Collection)
      */
-    public static boolean isNotEmpty(Collection collection) {
+    public static boolean isNotEmpty(Collection<?> collection) {
 
         return !isEmpty(collection);
     }
