@@ -60,6 +60,21 @@ search a file named ```datawarehouse.properties``` in which you put the followin
 - catalog : path to the catalog. You also can use environment variable here if you want. For example : ${ROLAP4J_HOME}/foodMart.xml
 - show_mdx : Set ```true``` if you want to show the corresponding MDX expression to your query
 
+Laungh the build
+----------------
+
+```mvn clean install -DskipTests```
+
+Add the dependency to your project
+----------------------------------
+
+```xml
+<dependency>
+	<artifactId>rolap4j-framework</artifactId>
+	<groupId>org.rolap4j</groupId>
+	<version>1.0-RELEASE</version>
+</dependency>
+```
 
 Example
 -------
@@ -110,10 +125,7 @@ try {
         }
 ```
 
-Building the framework
-----------------------
 
-```mvn clean install -DskipTests```
 
 
 
