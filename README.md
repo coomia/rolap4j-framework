@@ -110,6 +110,13 @@ try {
         }
 ```
 
+Building the framework
+----------------------
+
+```mvn clean install -DskipTests```
+
+
+
 
 
 

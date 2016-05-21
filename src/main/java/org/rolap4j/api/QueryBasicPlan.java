@@ -151,6 +151,17 @@ public interface QueryBasicPlan {
      */
     public Query.QueryBuilder userFilter(Collection<String> filters);
 
+
+    /**
+     * Set an element determining a filter axis of projection by defining its value.
+     *
+     * @param filter Concerned dimension name
+     * @param value  Specific element among the elements of the dimension
+     * @return A query builder
+     * @see org.rolap4j.api.Query.QueryBuilder
+     */
+    public Query.QueryBuilder useFilter(String filter, String value);
+
     /**
      * Set the MultiDimensional eXpressions (MDX) query to execute.
      * For more informations, please see : <a href="https://en.wikipedia.org/wiki/MultiDimensional_eXpressions">the wiki</a>
@@ -159,7 +170,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder setMdx(final String mdxQuery);
+    public Query.QueryBuilder withMdx(final String mdxQuery);
 
 
 }

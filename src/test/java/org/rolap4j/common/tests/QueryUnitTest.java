@@ -63,7 +63,7 @@ public class QueryUnitTest {
             mdx.append("FROM [Ventes] ");
 
             // Setting the query ...
-            Query query = new Query.QueryBuilder().setMdx(mdx.toString()).build();
+            Query query = new Query.QueryBuilder().withMdx(mdx.toString()).build();
 
             // Just printing the results ...
             query.printResults();
@@ -81,8 +81,10 @@ public class QueryUnitTest {
     public void userColumn_label_valueTest() {
 
         try {
-            Query query = new Query.QueryBuilder().fromCube("Ventes").useColumn("Produit", "Nom du produit")
-                    .useRow("Lieu").userFilter("Prix moyen").build();
+            Query query = new Query.QueryBuilder().
+                    fromCube("Ventes").
+                    useColumn("Produit", "Nom du produit").
+                    useRow("Lieu").userFilter("Prix moyen").build();
 
             query.printResults();
 

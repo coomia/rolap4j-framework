@@ -93,8 +93,11 @@ public class Query {
         return mdxQuery.getSelect().toString();
     }
 
+
     /**
      * Print the query results in console
+     *
+     * @throws Rolap4jException An error occured when trying to execute query in order to print its results
      */
     public void printResults() throws Rolap4jException {
 
@@ -117,13 +120,13 @@ public class Query {
     @Slf4j
     public static class QueryBuilder implements QueryBasicPlan {
 
-        private Set<String> columnSets = new LinkedHashSet<>();
+        private Set<String> columnSets = new LinkedHashSet<String>();
 
-        private Set<String> rowSets = new LinkedHashSet<>();
+        private Set<String> rowSets = new LinkedHashSet<String>();
 
-        private Set<String> filterSets = new LinkedHashSet<>();
+        private Set<String> filterSets = new LinkedHashSet<String>();
 
-        private List<String> errors = new ArrayList<>();
+        private List<String> errors = new ArrayList<String>();
 
         private Map<String, String> definedAttributes = new HashMap<String, String>();
 
@@ -155,6 +158,14 @@ public class Query {
         }
 
 
+        /**
+         * {@inheritDoc}
+         *
+         * @param cubeName The name of the concerned cube
+         * @return The current instance of {@link QueryBuilder}
+         * @throws Rolap4jException
+         * @see QueryBuilder
+         */
         @Override
         public QueryBuilder fromCube(final String cubeName) throws Rolap4jException {
 
@@ -264,7 +275,7 @@ public class Query {
          *
          * @param row   Concerned dimension name
          * @param value Specific element among the elements of the dimension
-         * @return
+         * @return The current instance of {@link QueryBuilder}
          */
         @Override
         public QueryBuilder useRow(final String row, final String value) {
@@ -312,13 +323,28 @@ public class Query {
         }
 
         /**
+         * {@inheritDoc}
+         *
+         * @param filter Concerned filter name
+         * @param value  Specific element among the elements of the filter
+         * @return The current instance of {@link QueryBuilder}
+         */
+        @Override
+        public QueryBuilder useFilter(final String filter, final String value) {
+
+            userFilter(filter);
+            definedAttributes.put(filter, value);
+            return this;
+        }
+
+        /**
          * Set the MultiDimensional eXpressions (MDX) query to execute.
          *
          * @param mdx The MultiDimensional eXpressions (MDX) query to execute
          * @return The current instance of {@link QueryBuilder}
          */
         @Override
-        public QueryBuilder setMdx(String mdx) {
+        public QueryBuilder withMdx(String mdx) {
 
             this.mdx = mdx;
             return this;

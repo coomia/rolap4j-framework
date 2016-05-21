@@ -1,0 +1,7 @@
+PropertyUnitTest.class
+org/rolap4j/common/tests/QueryUnitTest.class
+org/rolap4j/common/tests/ConfigUnitTest.class
+org/rolap4j/common/tests/SchemaUnitTest.class
+org/rolap4j/common/tests/CatalogParserUnitTest.class
+org/rolap4j/common/tests/QueryBuilderUnitTest.class
+org/rolap4j/common/tests/CubeUnitTest.class
