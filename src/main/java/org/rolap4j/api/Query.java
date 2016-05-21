@@ -262,6 +262,21 @@ public class Query {
         /**
          * {@inheritDoc}
          *
+         * @param row   Concerned dimension name
+         * @param value Specific element among the elements of the dimension
+         * @return
+         */
+        @Override
+        public QueryBuilder useRow(final String row, final String value) {
+
+            useRow(row);
+            definedAttributes.put(row, value);
+            return this;
+        }
+
+        /**
+         * {@inheritDoc}
+         *
          * @param filter
          * @return The current instance of {@link QueryBuilder}
          */
@@ -341,7 +356,7 @@ public class Query {
             try {
                 mdxQuery = new org.olap4j.query.Query("newQuery", cube);
 
-                QueryBuilderHelper qbh = new QueryBuilderHelper();
+                final QueryBuilderHelper qbh = new QueryBuilderHelper();
 
                 // Populate columns --------------------------------------------------------------
                 QueryAxis columnAxis = mdxQuery.getAxis(Axis.COLUMNS);

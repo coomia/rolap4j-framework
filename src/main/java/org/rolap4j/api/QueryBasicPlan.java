@@ -119,6 +119,25 @@ public interface QueryBasicPlan {
     public Query.QueryBuilder useRows(Collection<String> rows);
 
     /**
+     * Set an element determining a horizontal axis of projection by defining its value.
+     * The following example shows how to project a particular product within the query :
+     * <pre>
+     *     {@code
+     *          Query myQuery = new QueryBuilder().fromCube("Sales")
+     *              .useColumn("Month")
+     *              .useRow("Product", "Macbook") // project only the "Macbook" product
+     *          .build();
+     *     }
+     * </pre>
+     *
+     * @param row   Concerned dimension name
+     * @param value Specific element among the elements of the dimension
+     * @return A query builder
+     * @see org.rolap4j.api.Query.QueryBuilder
+     */
+    public Query.QueryBuilder useRow(String row, String value);
+
+    /**
      * @param filter
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
