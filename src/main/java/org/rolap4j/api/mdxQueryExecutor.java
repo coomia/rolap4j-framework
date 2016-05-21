@@ -30,9 +30,17 @@ import java.sql.SQLException;
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-public final class mdxQueryExecutor {
+final class mdxQueryExecutor {
 
-    public static CellSet executeQuery(final String mdxQuery) throws Rolap4jException {
+    /* package */
+
+    /**
+     * @param mdxQuery Executes an MDX query
+     * @return Results of the given query
+     * @throws Rolap4jException An error occured while executing the given query
+     * @see org.olap4j.Cell
+     */
+    static CellSet executeQuery(final String mdxQuery) throws Rolap4jException {
 
         try {
             final OlapConnection olapConnection = new RolapConnectionProvider().getConnection().unwrap(OlapConnection.class);
@@ -43,7 +51,7 @@ public final class mdxQueryExecutor {
     }
 
     private mdxQueryExecutor() {
-        
+
         throw new AssertionError();
     }
 }

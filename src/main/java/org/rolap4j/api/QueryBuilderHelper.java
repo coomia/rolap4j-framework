@@ -45,7 +45,7 @@ import java.util.Map;
  * @since 1.0-RELEASE
  */
 @Slf4j
-public class QueryBuilderHelper {
+class QueryBuilderHelper {
 
     /**
      * Add a new element in the query. An element can be one of the following : dimension, level, property, measure.
@@ -59,10 +59,8 @@ public class QueryBuilderHelper {
      * @throws Rolap4jException
      * @see Schema
      */
-    public void addCubeElementInQuery(final Schema schema, final Cube cube, final String element,
-                                      QueryAxis axis, org.olap4j.query.Query mdxQuery, Map<String, String> definedAttributes,
-                                      Map<String, List<String>> definedListAttributes
-    ) throws Rolap4jException
+    void addCubeElementInQuery(final Schema schema, final Cube cube, final String element,
+                               QueryAxis axis, org.olap4j.query.Query mdxQuery, Map<String, String> definedAttributes, Map<String, List<String>> definedListAttributes) throws Rolap4jException
 
     {
 

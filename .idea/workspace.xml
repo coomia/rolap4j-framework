@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ea43e89-b01a-473c-afb7-3a66ec7d1e31" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rolap4j-framework-1.0-RELEASE.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/rolap4j/api/Query$QueryBuilder.class" afterPath="$PROJECT_DIR$/target/classes/org/rolap4j/api/Query$QueryBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/rolap4j/api/QueryBasicPlan.class" afterPath="$PROJECT_DIR$/target/classes/org/rolap4j/api/QueryBasicPlan.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/org/rolap4j/common/tests/QueryUnitTest.class" afterPath="$PROJECT_DIR$/target/test-classes/org/rolap4j/common/tests/QueryUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rolap4j.log" afterPath="$PROJECT_DIR$/logs/rolap4j.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rolap4j.log.1" afterPath="$PROJECT_DIR$/logs/rolap4j.log.1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/Query.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/Query.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBasicPlan.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBasicPlan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/QueryUnitTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/QueryUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/target/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBuilderHelper.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBuilderHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/mdxQueryExecutor.java" afterPath="$PROJECT_DIR$/src/main/java/org/rolap4j/api/mdxQueryExecutor.java" />
     </list>
     <ignored path="rolap4j-framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,8 +64,8 @@
       <file leaf-file-name="QueryBasicPlan.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBasicPlan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="934">
-              <caret line="155" column="84" selection-start-line="155" selection-start-column="84" selection-end-line="155" selection-end-column="84" />
+            <state relative-caret-position="2295">
+              <caret line="172" column="4" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -93,7 +81,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mdxQueryExecutor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/mdxQueryExecutor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
@@ -105,6 +103,18 @@
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueryBuilderHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBuilderHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+              <folding>
+                <marker date="1463870992000" expanded="true" signature="6846:7032" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -187,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/connectivity/RolapConnectionProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/common/Schema.java" />
         <option value="$MAVEN_REPOSITORY$/org/olap4j/olap4j/1.2.0/olap4j-1.2.0.jar!/org/olap4j/Axis.class" />
-        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/api/mdxQueryExecutor.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/ConfigUnitTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/CatalogParserUnitTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/utils/PropertiesUtil.java" />
@@ -197,11 +206,12 @@
         <option value="$PROJECT_DIR$/rolap4j-framework-demo-resources/datawarehouse.properties" />
         <option value="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/QueryBuilderUnitTest.java" />
         <option value="$PROJECT_DIR$/rolap4j-framework-demo-resources/magasin.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBuilderHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBasicPlan.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/rolap4j/common/tests/QueryUnitTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/api/Query.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBasicPlan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBuilderHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/rolap4j/api/mdxQueryExecutor.java" />
       </list>
     </option>
   </component>
@@ -233,7 +243,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="PackagesPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -249,41 +259,53 @@
     <panes>
       <pane id="Scope" />
       <pane id="ProjectPane">
+        <subPane />
+      </pane>
+      <pane id="PackagesPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="rolap4j-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rolap4j-framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="rolap4j-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rolap4j-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.rolap4j" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="rolap4j-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rolap4j-framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="org.rolap4j" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane />
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -1120,24 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/mdxQueryExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBuilderHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="63" column="85" selection-start-line="63" selection-start-column="85" selection-end-line="63" selection-end-column="85" />
-          <folding>
-            <marker date="1463676438000" expanded="true" signature="6910:7096" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/common/Level.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -1158,14 +1162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-275">
           <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBasicPlan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="934">
-          <caret line="155" column="84" selection-start-line="155" selection-start-column="84" selection-end-line="155" selection-end-column="84" />
           <folding />
         </state>
       </provider>
@@ -1227,6 +1223,32 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBasicPlan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="172" column="4" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/QueryBuilderHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+          <folding>
+            <marker date="1463870992000" expanded="true" signature="6846:7032" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/rolap4j/api/mdxQueryExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

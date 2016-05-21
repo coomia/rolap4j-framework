@@ -27,7 +27,7 @@ import java.util.Collection;
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-public interface QueryBasicPlan {
+interface QueryBasicPlan {
 
 
     /**
@@ -38,7 +38,7 @@ public interface QueryBasicPlan {
      * @see org.rolap4j.api.Query.QueryBuilder
      * @see org.rolap4j.common.Cube
      */
-    public Query.QueryBuilder fromCube(final String cube) throws Rolap4jException;
+    Query.QueryBuilder fromCube(final String cube) throws Rolap4jException;
 
     /**
      * Sets an element determining a vertical axis of projection. <br />
@@ -58,7 +58,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder useColumn(final String column);
+    Query.QueryBuilder useColumn(final String column);
 
 
     /**
@@ -78,7 +78,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder useColumns(Collection<String> columns);
+    Query.QueryBuilder useColumns(Collection<String> columns);
 
     /**
      * Set an element determining a vertical axis of projection by defining its value.
@@ -97,7 +97,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder useColumn(String column, String value);
+    Query.QueryBuilder useColumn(String column, String value);
 
     /**
      * Sets an element determining a horizontal axis of projection. <br />
@@ -106,7 +106,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder useRow(final String row);
+    Query.QueryBuilder useRow(final String row);
 
     //-----------------------------------------------------------------------------------------------------
     // TODO : write good documentation ...
@@ -116,7 +116,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder useRows(Collection<String> rows);
+    Query.QueryBuilder useRows(Collection<String> rows);
 
     /**
      * Set an element determining a horizontal axis of projection by defining its value.
@@ -135,21 +135,21 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder useRow(String row, String value);
+    Query.QueryBuilder useRow(String row, String value);
 
     /**
      * @param filter
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder userFilter(final String filter);
+    Query.QueryBuilder userFilter(final String filter);
 
     /**
      * @param filters
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder userFilter(Collection<String> filters);
+    Query.QueryBuilder userFilter(Collection<String> filters);
 
 
     /**
@@ -160,7 +160,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder useFilter(String filter, String value);
+    Query.QueryBuilder useFilter(String filter, String value);
 
     /**
      * Set the MultiDimensional eXpressions (MDX) query to execute.
@@ -170,7 +170,7 @@ public interface QueryBasicPlan {
      * @return A query builder
      * @see org.rolap4j.api.Query.QueryBuilder
      */
-    public Query.QueryBuilder withMdx(final String mdxQuery);
+    Query.QueryBuilder withMdx(final String mdxQuery);
 
 
 }
