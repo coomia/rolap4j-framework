@@ -112,7 +112,7 @@ try {
             mdx.append("FROM [Sales] ");
 
             // Setting the query ...
-            Query query = new Query.QueryBuilder().setMdx(mdx.toString()).build();
+            Query query = new Query.QueryBuilder().withMdx(mdx.toString()).build();
             
             // Just printing the results ...
             query.printResults();
