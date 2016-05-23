@@ -3,6 +3,7 @@ org/rolap4j/utils/CollectionUtil.class
 org/rolap4j/common/ElementType.class
 org/rolap4j/common/Cube.class
 org/rolap4j/config/Rolap4jConfig$1.class
+org/rolap4j/api/QuerySortingPlan.class
 org/rolap4j/utils/XmlDocumentUtil.class
 org/rolap4j/exceptions/FileNotFoundException.class
 org/rolap4j/common/MappingElement.class
@@ -19,6 +20,7 @@ org/rolap4j/config/DataSource.class
 org/rolap4j/config/enums/DriverKeyClassMap.class
 org/rolap4j/config/Rolap4jConfig.class
 org/rolap4j/connectivity/RdbConnectionProvider.class
+org/rolap4j/utils/QueryUtil.class
 org/rolap4j/exceptions/ConfigurationException.class
 org/rolap4j/api/QueryBasicPlan.class
 org/rolap4j/utils/FileUtil.class
@@ -34,6 +36,7 @@ org/rolap4j/common/Schema.class
 org/rolap4j/config/DataSource$1.class
 org/rolap4j/parsers/CatalogParser.class
 org/rolap4j/common/PropertyType.class
+org/rolap4j/api/enums/SortOrder.class
 org/rolap4j/config/DataSource$DataSourceBuilder.class
 org/rolap4j/config/Rolap4jConfig$Rolap4jConfigHolder.class
 org/rolap4j/api/QueryBuilderHelper.class

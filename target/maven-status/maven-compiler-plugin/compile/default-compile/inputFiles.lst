@@ -1,6 +1,7 @@
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/connectivity/RdbConnectionProvider.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/exceptions/ConfigurationException.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/common/Element.java
+/Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/api/enums/SortOrder.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/utils/FileUtil.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/common/MappingElement.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/common/ElementType.java
@@ -11,6 +12,7 @@
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/api/mdxQueryExecutor.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/common/PropertyType.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/connectivity/RolapConnectionProvider.java
+/Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/utils/QueryUtil.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/parsers/CatalogParser.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/utils/XmlDocumentUtil.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/api/QueryBuilderHelper.java
@@ -24,6 +26,7 @@
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/api/Query.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/config/enums/DriverKeyClassMap.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/connectivity/ConnectionProvider.java
+/Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/api/QuerySortingPlan.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/config/Rolap4jConfig.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/common/Cube.java
 /Users/andriantomanga/IdeaProjects/rolap4j-framework/src/main/java/org/rolap4j/common/Schema.java

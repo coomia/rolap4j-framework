@@ -411,7 +411,7 @@ public class Query {
                     qbh.addCubeElementInQuery(schema, cube, iter.next(), filterAxis, mdxQuery, definedAttributes, definedListAttributes);
                 }
 
-                
+
                 addSortStrategies(axesSortStrategies, mdxQuery);
 
                 mdxQuery.validate();
