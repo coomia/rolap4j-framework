@@ -23,14 +23,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.olap4j.Axis;
 import org.olap4j.CellSet;
 import org.olap4j.OlapConnection;
+import org.olap4j.OlapException;
 import org.olap4j.layout.RectangularCellSetFormatter;
 import org.olap4j.metadata.Cube;
 import org.olap4j.query.QueryAxis;
+import org.olap4j.query.QueryDimension;
+import org.olap4j.query.SortOrder;
 import org.rolap4j.common.Schema;
 import org.rolap4j.config.DataSource;
 import org.rolap4j.config.Rolap4jConfig;
 import org.rolap4j.connectivity.RolapConnectionProvider;
 import org.rolap4j.exceptions.Rolap4jException;
+import org.rolap4j.utils.QueryUtil;
 import org.rolap4j.utils.StringUtil;
 
 import java.io.PrintWriter;
@@ -131,6 +135,8 @@ public class Query {
         private Map<String, String> definedAttributes = new HashMap<String, String>();
 
         private Map<String, List<String>> definedListAttributes = new HashMap<String, List<String>>();
+
+        private Map<Axis, SortOrder> axesSortStrategies = new HashMap<Axis, SortOrder>();
 
         private String cubeName;
 
@@ -405,11 +411,31 @@ public class Query {
                     qbh.addCubeElementInQuery(schema, cube, iter.next(), filterAxis, mdxQuery, definedAttributes, definedListAttributes);
                 }
 
+                
+                addSortStrategies(axesSortStrategies, mdxQuery);
+
                 mdxQuery.validate();
 
             } catch (SQLException e) {
                 throw new Rolap4jException(e.getMessage());
             }
+        }
+
+        /**
+         * @param axesSortStrategies
+         * @param mdxQuery
+         * @throws OlapException
+         */
+        private void addSortStrategies(Map<Axis, SortOrder> axesSortStrategies, org.olap4j.query.Query mdxQuery) throws OlapException {
+
+            for (Map.Entry<Axis, SortOrder> entry : axesSortStrategies.entrySet()) {
+                QueryAxis axis = mdxQuery.getAxis(entry.getKey());
+                for (QueryDimension queryDimension : axis.getDimensions()) {
+                    queryDimension.clearSort();  // empty all sort strategies
+                }
+                axis.sort(entry.getValue());
+            }
+
         }
 
 
@@ -448,6 +474,36 @@ public class Query {
             if (!schema.containsCube(cubeName)) {
                 throw new Rolap4jException("The cube " + cubeName + " is not defined int the following catalog : " + dataSource.getCatalogPath());
             }
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public QueryBuilder sortColumns(org.rolap4j.api.enums.SortOrder order) {
+
+            axesSortStrategies.put(Axis.COLUMNS, QueryUtil.toOlap4jSortOrder(order));
+            return this;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public QueryBuilder sortRows(org.rolap4j.api.enums.SortOrder order) {
+
+            axesSortStrategies.put(Axis.ROWS, QueryUtil.toOlap4jSortOrder(order));
+            return this;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public QueryBuilder sortFilters(org.rolap4j.api.enums.SortOrder order) {
+
+            axesSortStrategies.put(Axis.FILTER, QueryUtil.toOlap4jSortOrder(order));
+            return this;
         }
     }
 

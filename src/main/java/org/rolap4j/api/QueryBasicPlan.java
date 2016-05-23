@@ -27,7 +27,7 @@ import java.util.Collection;
  * @version 1.0-RELEASE
  * @since 1.0-RELEASE
  */
-interface QueryBasicPlan {
+interface QueryBasicPlan extends QuerySortingPlan {
 
 
     /**
@@ -171,6 +171,8 @@ interface QueryBasicPlan {
      * @see org.rolap4j.api.Query.QueryBuilder
      */
     Query.QueryBuilder withMdx(final String mdxQuery);
+
+
 
 
 }
