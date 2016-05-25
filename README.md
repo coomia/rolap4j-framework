@@ -99,7 +99,7 @@ The following examples introduce the usage of Rolap4j Framework.
      }
 ```
 
-The following snippet retrieve the same result as the one above :
+The following snippet retrieves the same result as the one above :
 ```java
  try {
        // Defining the columns to project ...
