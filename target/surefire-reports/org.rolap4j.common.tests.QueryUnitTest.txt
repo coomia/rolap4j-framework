@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.rolap4j.common.tests.QueryUnitTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 1.368 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 1.26 sec

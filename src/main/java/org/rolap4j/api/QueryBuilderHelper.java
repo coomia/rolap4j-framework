@@ -138,7 +138,7 @@ class QueryBuilderHelper {
      * @return Name of the dimension containing the specified level
      * @see Schema
      */
-    public String getLevelDimensionName(final String levelName, final Schema schema) {
+     String getLevelDimensionName(final String levelName, final Schema schema) {
 
         if (StringUtil.isEmpty(levelName) || null == schema) {
             return null;
@@ -185,10 +185,9 @@ class QueryBuilderHelper {
      * @param names
      * @return
      */
-    public static List<IdentifierSegment> nameList(String... names) {
+     static List<IdentifierSegment> nameList(String... names) {
 
         return IdentifierNode.ofNames(names).getSegmentList();
     }
-
 
 }

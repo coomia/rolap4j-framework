@@ -158,7 +158,7 @@ public class Query {
         public QueryBuilder() throws Rolap4jException {
 
             super();
-            Rolap4jConfig config = Rolap4jConfig.getInstance();
+            final Rolap4jConfig config = Rolap4jConfig.getInstance();
             schema = config.getSchema();
             dataSource = config.getDataSource();
         }
@@ -215,7 +215,7 @@ public class Query {
          * @return The current instance of {@link QueryBuilder}
          */
         @Override
-        public QueryBuilder useColumns(Collection<String> columns) {
+        public QueryBuilder useColumns(final Collection<String> columns) {
 
             for (Iterator<String> iter = columns.iterator(); iter.hasNext(); ) {
                 useColumn(iter.next());
@@ -231,7 +231,7 @@ public class Query {
          * @return The current instance of {@link QueryBuilder}
          */
         @Override
-        public QueryBuilder useColumn(String column, String value) {
+        public QueryBuilder useColumn(final String column, final String value) {
 
             useColumn(column);
             definedAttributes.put(column, value);
@@ -268,7 +268,7 @@ public class Query {
          * @return The current instance of {@link QueryBuilder}
          */
         @Override
-        public QueryBuilder useRows(Collection<String> rows) {
+        public QueryBuilder useRows(final Collection<String> rows) {
 
             for (Iterator<String> iter = rows.iterator(); iter.hasNext(); ) {
                 useRow(iter.next());
@@ -320,7 +320,7 @@ public class Query {
          * @return The current instance of {@link QueryBuilder}
          */
         @Override
-        public QueryBuilder userFilter(Collection<String> filters) {
+        public QueryBuilder userFilter(final Collection<String> filters) {
 
             for (Iterator<String> iter = filters.iterator(); iter.hasNext(); ) {
                 userFilter(iter.next());
@@ -350,7 +350,7 @@ public class Query {
          * @return The current instance of {@link QueryBuilder}
          */
         @Override
-        public QueryBuilder withMdx(String mdx) {
+        public QueryBuilder withMdx(final String mdx) {
 
             this.mdx = mdx;
             return this;
@@ -424,7 +424,7 @@ public class Query {
          * @param mdxQuery
          * @throws OlapException
          */
-        private void addSortStrategies(Map<Axis, SortOrder> axesSortStrategies, org.olap4j.query.Query mdxQuery) throws OlapException {
+        private void addSortStrategies(final Map<Axis, SortOrder> axesSortStrategies, final org.olap4j.query.Query mdxQuery) throws OlapException {
 
             for (Map.Entry<Axis, SortOrder> entry : axesSortStrategies.entrySet()) {
                 QueryAxis axis = mdxQuery.getAxis(entry.getKey());
@@ -478,7 +478,7 @@ public class Query {
          * {@inheritDoc}
          */
         @Override
-        public QueryBuilder sortColumns(org.rolap4j.api.enums.SortOrder order) {
+        public QueryBuilder sortColumns(final org.rolap4j.api.enums.SortOrder order) {
 
             axesSortStrategies.put(Axis.COLUMNS, QueryUtil.toOlap4jSortOrder(order));
             return this;
@@ -488,7 +488,7 @@ public class Query {
          * {@inheritDoc}
          */
         @Override
-        public QueryBuilder sortRows(org.rolap4j.api.enums.SortOrder order) {
+        public QueryBuilder sortRows(final org.rolap4j.api.enums.SortOrder order) {
 
             axesSortStrategies.put(Axis.ROWS, QueryUtil.toOlap4jSortOrder(order));
             return this;
@@ -498,7 +498,7 @@ public class Query {
          * {@inheritDoc}
          */
         @Override
-        public QueryBuilder sortFilters(org.rolap4j.api.enums.SortOrder order) {
+        public QueryBuilder sortFilters(final org.rolap4j.api.enums.SortOrder order) {
 
             axesSortStrategies.put(Axis.FILTER, QueryUtil.toOlap4jSortOrder(order));
             return this;
