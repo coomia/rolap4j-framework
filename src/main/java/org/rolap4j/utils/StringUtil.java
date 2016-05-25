@@ -26,6 +26,8 @@ package org.rolap4j.utils;
  */
 public final class StringUtil {
 
+    public static final String NEW_LINE = "\n";
+
     private StringUtil() {
 
         throw new AssertionError();

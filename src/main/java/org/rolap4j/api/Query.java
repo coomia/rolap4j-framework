@@ -445,7 +445,7 @@ public class Query {
             if (!errors.isEmpty()) {
                 StringBuilder messageBuilder = new StringBuilder("Errors occurred when building query : ");
                 for (Iterator<String> iter = errors.iterator(); iter.hasNext(); ) {
-                    messageBuilder.append(iter.next()).append("\n");
+                    messageBuilder.append(iter.next()).append(StringUtil.NEW_LINE);
                 }
                 throw new Rolap4jException(messageBuilder.toString());
             }
