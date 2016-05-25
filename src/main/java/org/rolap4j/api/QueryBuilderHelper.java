@@ -60,10 +60,10 @@ class QueryBuilderHelper {
      * @see Schema
      */
     void addCubeElementInQuery(final Schema schema, final Cube cube, final String element,
-                               QueryAxis axis, org.olap4j.query.Query mdxQuery, Map<String, String> definedAttributes, Map<String, List<String>> definedListAttributes) throws Rolap4jException
-
+                               QueryAxis axis, org.olap4j.query.Query mdxQuery,
+                               Map<String, String> definedAttributes,
+                               Map<String, List<String>> definedListAttributes) throws Rolap4jException
     {
-
         QueryDimension nextDimension;
 
         switch (Rolap4jConfig.getType(schema, element)) {

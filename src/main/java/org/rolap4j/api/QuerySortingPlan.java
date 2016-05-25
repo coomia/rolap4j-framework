@@ -28,7 +28,6 @@ import org.rolap4j.api.enums.SortOrder;
  */
 public interface QuerySortingPlan {
 
-
     /**
      * Sort results by columns following the mentioned {@code SortOrder}
      *

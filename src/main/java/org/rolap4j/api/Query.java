@@ -410,8 +410,6 @@ public class Query {
                 for (Iterator<String> iter = filterSets.iterator(); iter.hasNext(); ) {
                     qbh.addCubeElementInQuery(schema, cube, iter.next(), filterAxis, mdxQuery, definedAttributes, definedListAttributes);
                 }
-
-
                 addSortStrategies(axesSortStrategies, mdxQuery);
 
                 mdxQuery.validate();

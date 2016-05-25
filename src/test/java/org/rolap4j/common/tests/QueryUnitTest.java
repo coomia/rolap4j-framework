@@ -24,6 +24,9 @@ import org.olap4j.CellSet;
 import org.rolap4j.api.Query;
 import org.rolap4j.exceptions.Rolap4jException;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author <a href="mailto:contact@andriantomanga.com">Nabil Andriantomanga</a>
  * @version 1.0-RELEASE
@@ -78,7 +81,36 @@ public class QueryUnitTest {
     }
 
     @Test
-    public void userColumn_label_valueTest() {
+    public void executeQueryTest3() {
+
+        Query query = null;
+        try {
+
+//            query = new Query.QueryBuilder().fromCube("Ventes")
+//                    .useColumn("Temps")
+//                    .useColumn("Produit")
+//                    .useRow("Lieu").build();
+
+            List<String> columns = Arrays.asList("Temps", "Produit");
+            query = new Query.QueryBuilder().fromCube("Ventes")
+                    .useColumns(columns)
+                    .useRow("Lieu").build();
+            query.printResults(); // this instruction will print the following table
+//
+//                    |                | 2013              |
+//                    |                | Tous les produits |
+//                    +----------------+-------------------+
+//                    | Tous les lieux |               194 |
+
+        } catch (Rolap4jException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Ignore
+    @Test
+    public void executeQueryTest4() {
 
         try {
             Query query = new Query.QueryBuilder().

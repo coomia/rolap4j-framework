@@ -76,53 +76,75 @@ Add the dependency to your project
 </dependency>
 ```
 
-Example
--------
+Examples
+--------
 
-The following example introduces the usage of Rolap4j Framework.
+The following examples introduce the usage of Rolap4j Framework.
 ```java
  try {
-            // Building the query ...
-            Query query = new Query.QueryBuilder().fromCube("Sales")
-                    .useColumn("City").useColumn("Town")
-                    .useRow("Provider")
-                    .userFilter("Quantity")
-                    .build();
+      // Building the query ...
+      Query query = new Query.QueryBuilder().fromCube("Sales")
+        .useColumn("City").useColumn("Town")
+        .useRow("Provider")
+        .userFilter("Quantity")
+      .build();
 
-            // Executing the query ...
-            CellSet results = query.executeQuery();
+      // Executing the query ...
+      CellSet results = query.executeQuery();
             
-            // Use the results ...
+      // Use the results ...
             
-        } catch (Rolap4jException e) {
-            e.printStackTrace();
-        }
+     } catch (Rolap4jException e) {
+         e.printStackTrace();
+     }
 ```
 
+The following snippet retrieve the same result as the one above :
+```java
+ try {
+       // Defining the columns to project ...
+      java.util.List columns = Arrays.asList("City", "Town");
+      
+      // Building the query ...
+      Query query = new Query.QueryBuilder().fromCube("Sales")
+        .useColumns(columns)
+        .useRow("Provider")
+        .userFilter("Quantity")
+      .build();
+
+      // Executing the query ...
+      CellSet results = query.executeQuery();
+            
+      // Use the results ...
+            
+     } catch (Rolap4jException e) {
+         e.printStackTrace();
+     }
+```
 You also can directly use MDX query 
 ```java
 try {
             
-            // Creating a MDX query
-            StringBuilder mdx = new StringBuilder();
+    // Creating a MDX query
+    StringBuilder mdx = new StringBuilder();
 
-            mdx.append("SELECT");
-            mdx.append("{Hierarchize({[Product].[Macbook Pro]})} ON COLUMNS, ");
-            mdx.append("{Hierarchize({[Location].[Paris]})} ON ROWS ");
-            mdx.append("FROM [Sales] ");
+    mdx.append("SELECT");
+    mdx.append("{Hierarchize({[Product].[Macbook Pro]})} ON COLUMNS, ");
+    mdx.append("{Hierarchize({[Location].[Paris]})} ON ROWS ");
+    mdx.append("FROM [Sales] ");
 
-            // Setting the query ...
-            Query query = new Query.QueryBuilder().withMdx(mdx.toString()).build();
+    // Setting the query ...
+    Query query = new Query.QueryBuilder().withMdx(mdx.toString()).build();
             
-            // Just printing the results ...
-            query.printResults();
+    // Just printing the results ...
+    query.printResults();
             
-            // Retrieving the results in iterable object ...
-            CellSet results = query.executeQuery();
+    // Retrieving the results in iterable object ...
+    CellSet results = query.executeQuery();
 
-        } catch (Rolap4jException e) {
-            e.printStackTrace();
-        }
+ } catch (Rolap4jException e) {
+    e.printStackTrace();
+}
 ```
 
 

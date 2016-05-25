@@ -140,6 +140,14 @@
             </snapshots>
         </repository>
 
+        <repository>
+            <id>git-Andriantomanga</id>
+            <name>Andriantomanga's Git based repo</name>
+            <url>
+                https://github.com/andriantomanga/rolap4j-framework/raw/master/
+            </url>
+        </repository>
+
     </repositories>
 
 

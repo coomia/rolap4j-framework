@@ -162,6 +162,7 @@ interface QueryBasicPlan extends QuerySortingPlan {
      */
     Query.QueryBuilder useFilter(String filter, String value);
 
+
     /**
      * Set the MultiDimensional eXpressions (MDX) query to execute.
      * For more informations, please see : <a href="https://en.wikipedia.org/wiki/MultiDimensional_eXpressions">the wiki</a>

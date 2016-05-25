@@ -1,273 +1,120 @@
-2016-05-21 23:33:27,665 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom fournisseur), column=fournisseur_nom), uniqueMembers=true)
-2016-05-21 23:33:27,665 [DEBUG]- 	Level Nom fournisseur added to Fournisseur hierarchy
-2016-05-21 23:33:27,666 [DEBUG]- Adding some levels to the current dimension
-2016-05-21 23:33:27,666 [DEBUG]- 	Hierarchy Fournisseur added to Fournisseur hierarchies
-2016-05-21 23:33:27,666 [DEBUG]- 	Fournisseur dimension was found
-2016-05-21 23:33:27,666 [DEBUG]- 5 dimension(s) successfully loaded
-2016-05-21 23:33:27,667 [INFO ]- The dimension Client is added to the schema Magasin
-2016-05-21 23:33:27,667 [INFO ]- The dimension Lieu is added to the schema Magasin
-2016-05-21 23:33:27,667 [INFO ]- The dimension Temps is added to the schema Magasin
-2016-05-21 23:33:27,667 [INFO ]- The dimension Produit is added to the schema Magasin
-2016-05-21 23:33:27,667 [INFO ]- The dimension Fournisseur is added to the schema Magasin
-2016-05-21 23:33:27,668 [DEBUG]- Loading all cubes from the schema ...
-2016-05-21 23:33:27,670 [DEBUG]- 	Ventes cube was found
-2016-05-21 23:33:27,671 [DEBUG]- 	Achats cube was found
-2016-05-21 23:33:27,671 [INFO ]- The cube Ventes is added to the schema Magasin
-2016-05-21 23:33:27,671 [INFO ]- The cube Achats is added to the schema Magasin
-2016-05-21 23:33:27,672 [DEBUG]- ----------------------------------------------------
-2016-05-21 23:33:27,672 [DEBUG]- Printing data source configuration parameters
-2016-05-21 23:33:27,672 [DEBUG]- ----------------------------------------------------
-2016-05-21 23:33:27,672 [DEBUG]- Catalog : /Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
-2016-05-21 23:33:27,673 [DEBUG]- URI : jdbc:mysql://localhost:3306/magasin
-2016-05-21 23:33:27,673 [DEBUG]- Username : root
-2016-05-21 23:33:27,673 [DEBUG]- Password : 
-2016-05-21 23:33:27,673 [DEBUG]- Driver class : com.mysql.jdbc.Driver
-2016-05-21 23:33:27,673 [DEBUG]- Show MDX query ? : Yes
-2016-05-21 23:33:27,674 [DEBUG]- ----------------------------------------------------
-2016-05-21 23:33:27,674 [DEBUG]- Printing all cubes name
-2016-05-21 23:33:27,674 [DEBUG]- ----------------------------------------------------
-2016-05-21 23:33:27,675 [DEBUG]- 	 - Ventes
-2016-05-21 23:33:27,675 [DEBUG]- 	 - Achats
-2016-05-21 23:33:27,675 [DEBUG]- ----------------------------------------------------
-2016-05-21 23:33:27,675 [DEBUG]- Printing all dimensions name
-2016-05-21 23:33:27,675 [DEBUG]- ----------------------------------------------------
-2016-05-21 23:33:27,676 [DEBUG]- 	 - Temps
-2016-05-21 23:33:27,677 [DEBUG]- 	 - Fournisseur
-2016-05-21 23:33:27,677 [DEBUG]- 	 - Lieu
-2016-05-21 23:33:27,677 [DEBUG]- 	 - Client
-2016-05-21 23:33:27,677 [DEBUG]- 	 - Produit
-2016-05-21 23:33:27,742 [DEBUG]- Connecting to jdbc:mysql://localhost:3306/magasin with the user root ...
-2016-05-21 23:33:27,958 [INFO ]- Using "/var/folders/k_/4rtvlc515jjgcm344twyb24c0000gn/T/vfs_cache" as temporary files store.
-2016-05-21 23:33:28,017 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.ftp.FtpFileProvider" because required class "org.apache.commons.net.ftp.FTPFile" is not available.
-2016-05-21 23:33:28,024 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.sftp.SftpFileProvider" because required class "com.jcraft.jsch.JSch" is not available.
-2016-05-21 23:33:28,025 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.webdav.WebdavFileProvider" because required class "org.apache.jackrabbit.webdav.client.methods.DavMethod" is not available.
-2016-05-21 23:33:28,027 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.smb.SmbFileProvider" because required class "jcifs.smb.SmbFile" is not available.
-2016-05-21 23:33:28,028 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.mime.MimeFileProvider" because required class "javax.mail.internet.MimeMultipart" is not available.
-2016-05-21 23:33:28,044 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework
-2016-05-21 23:33:28,044 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
-2016-05-22 00:11:45,675 [DEBUG]- Defined configuration file : /Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/datawarehouse.properties
-2016-05-22 00:11:45,697 [INFO ]- Rolap4j will use the following driver to communicate with data source : com.mysql.jdbc.Driver
-2016-05-22 00:11:45,705 [DEBUG]- Building document from the following file /Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
-2016-05-22 00:11:46,475 [DEBUG]- Loading all dimensions from the schema ...
-2016-05-22 00:11:46,488 [DEBUG]- Loading all Client hierarchies
-2016-05-22 00:11:46,514 [DEBUG]- Loading all Client levels ...
-2016-05-22 00:11:46,517 [DEBUG]- Loading all Type client level properties ...
-2016-05-22 00:11:46,518 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Type client), column=client_type), uniqueMembers=true)
-2016-05-22 00:11:46,518 [DEBUG]- 	Level Type client added to Client hierarchy
-2016-05-22 00:11:46,520 [DEBUG]- Loading all Nom client level properties ...
-2016-05-22 00:11:46,520 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom client), column=client_nom), uniqueMembers=true)
-2016-05-22 00:11:46,521 [DEBUG]- 	Level Nom client added to Client hierarchy
-2016-05-22 00:11:46,521 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:11:46,521 [DEBUG]- 	Hierarchy Client added to Client hierarchies
-2016-05-22 00:11:46,521 [DEBUG]- 	Client dimension was found
-2016-05-22 00:11:46,522 [DEBUG]- Loading all Lieu hierarchies
-2016-05-22 00:11:46,525 [DEBUG]- Loading all Lieu levels ...
-2016-05-22 00:11:46,526 [DEBUG]- Loading all Pays level properties ...
-2016-05-22 00:11:46,527 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Pays), column=lieu_pays), uniqueMembers=true)
-2016-05-22 00:11:46,527 [DEBUG]- 	Level Pays added to Lieu hierarchy
-2016-05-22 00:11:46,528 [DEBUG]- Loading all Région level properties ...
-2016-05-22 00:11:46,528 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Région), column=lieu_region), uniqueMembers=true)
-2016-05-22 00:11:46,528 [DEBUG]- 	Level Région added to Lieu hierarchy
-2016-05-22 00:11:46,529 [DEBUG]- Loading all Ville level properties ...
-2016-05-22 00:11:46,529 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Ville), column=lieu_ville), uniqueMembers=true)
-2016-05-22 00:11:46,530 [DEBUG]- 	Level Ville added to Lieu hierarchy
-2016-05-22 00:11:46,530 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:11:46,530 [DEBUG]- 	Hierarchy Lieu added to Lieu hierarchies
-2016-05-22 00:11:46,530 [DEBUG]- 	Lieu dimension was found
-2016-05-22 00:11:46,531 [DEBUG]- Loading all Temps hierarchies
-2016-05-22 00:11:46,531 [DEBUG]- Loading all Temps levels ...
-2016-05-22 00:11:46,532 [DEBUG]- Loading all Annee level properties ...
-2016-05-22 00:11:46,533 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Annee), column=temps_annee), uniqueMembers=true)
-2016-05-22 00:11:46,533 [DEBUG]- 	Level Annee added to Temps hierarchy
-2016-05-22 00:11:46,533 [DEBUG]- Loading all Trimestre level properties ...
-2016-05-22 00:11:46,534 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Trimestre), column=temps_trimestre), uniqueMembers=false)
-2016-05-22 00:11:46,534 [DEBUG]- 	Level Trimestre added to Temps hierarchy
-2016-05-22 00:11:46,534 [DEBUG]- Loading all Mois level properties ...
-2016-05-22 00:11:46,535 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Mois), column=temps_mois), uniqueMembers=false)
-2016-05-22 00:11:46,535 [DEBUG]- 	Level Mois added to Temps hierarchy
-2016-05-22 00:11:46,536 [DEBUG]- Loading all Jour level properties ...
-2016-05-22 00:11:46,564 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Jour), column=temps_jour_mois), uniqueMembers=false)
-2016-05-22 00:11:46,564 [DEBUG]- 	Level Jour added to Temps hierarchy
-2016-05-22 00:11:46,564 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:11:46,565 [DEBUG]- 	Hierarchy Temps added to Temps hierarchies
-2016-05-22 00:11:46,575 [DEBUG]- Loading all Semaine levels ...
-2016-05-22 00:11:46,592 [DEBUG]- Loading all Annee level properties ...
-2016-05-22 00:11:46,614 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Annee), column=temps_annee), uniqueMembers=true)
-2016-05-22 00:11:46,617 [DEBUG]- 	Level Annee added to Semaine hierarchy
-2016-05-22 00:11:46,621 [DEBUG]- Loading all Mois level properties ...
-2016-05-22 00:11:46,622 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Mois), column=temps_mois), uniqueMembers=false)
-2016-05-22 00:11:46,623 [DEBUG]- 	Level Mois added to Semaine hierarchy
-2016-05-22 00:11:46,624 [DEBUG]- Loading all Jour de la semaine level properties ...
-2016-05-22 00:11:46,625 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Jour de la semaine), column=temps_jour_semaine), uniqueMembers=false)
-2016-05-22 00:11:46,625 [DEBUG]- 	Level Jour de la semaine added to Semaine hierarchy
-2016-05-22 00:11:46,627 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:11:46,628 [DEBUG]- 	Hierarchy Semaine added to Temps hierarchies
-2016-05-22 00:11:46,628 [DEBUG]- 	Temps dimension was found
-2016-05-22 00:11:46,629 [DEBUG]- Loading all Produit hierarchies
-2016-05-22 00:11:46,630 [DEBUG]- Loading all Produit levels ...
-2016-05-22 00:11:46,631 [DEBUG]- Loading all Categorie level properties ...
-2016-05-22 00:11:46,631 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Categorie), column=produit_category), uniqueMembers=true)
-2016-05-22 00:11:46,632 [DEBUG]- 	Level Categorie added to Produit hierarchy
-2016-05-22 00:11:46,633 [DEBUG]- Loading all Marque level properties ...
-2016-05-22 00:11:46,633 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Marque), column=produit_marque), uniqueMembers=true)
-2016-05-22 00:11:46,633 [DEBUG]- 	Level Marque added to Produit hierarchy
-2016-05-22 00:11:46,634 [DEBUG]- Loading all Couleur level properties ...
-2016-05-22 00:11:46,634 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Couleur), column=produit_couleur), uniqueMembers=true)
-2016-05-22 00:11:46,635 [DEBUG]- 	Level Couleur added to Produit hierarchy
-2016-05-22 00:11:46,636 [DEBUG]- Loading all Nom du produit level properties ...
-2016-05-22 00:11:46,636 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom du produit), column=produit_nom), uniqueMembers=true)
-2016-05-22 00:11:46,636 [DEBUG]- 	Level Nom du produit added to Produit hierarchy
-2016-05-22 00:11:46,637 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:11:46,637 [DEBUG]- 	Hierarchy Produit added to Produit hierarchies
-2016-05-22 00:11:46,638 [DEBUG]- 	Produit dimension was found
-2016-05-22 00:11:46,638 [DEBUG]- Loading all Fournisseur hierarchies
-2016-05-22 00:11:46,639 [DEBUG]- Loading all Fournisseur levels ...
-2016-05-22 00:11:46,641 [DEBUG]- Loading all Type fournisseur level properties ...
-2016-05-22 00:11:46,641 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Type fournisseur), column=fournisseur_type), uniqueMembers=true)
-2016-05-22 00:11:46,641 [DEBUG]- 	Level Type fournisseur added to Fournisseur hierarchy
-2016-05-22 00:11:46,642 [DEBUG]- Loading all Nom fournisseur level properties ...
-2016-05-22 00:11:46,649 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom fournisseur), column=fournisseur_nom), uniqueMembers=true)
-2016-05-22 00:11:46,649 [DEBUG]- 	Level Nom fournisseur added to Fournisseur hierarchy
-2016-05-22 00:11:46,649 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:11:46,650 [DEBUG]- 	Hierarchy Fournisseur added to Fournisseur hierarchies
-2016-05-22 00:11:46,650 [DEBUG]- 	Fournisseur dimension was found
-2016-05-22 00:11:46,651 [DEBUG]- 5 dimension(s) successfully loaded
-2016-05-22 00:11:46,651 [INFO ]- The dimension Client is added to the schema Magasin
-2016-05-22 00:11:46,651 [INFO ]- The dimension Lieu is added to the schema Magasin
-2016-05-22 00:11:46,652 [INFO ]- The dimension Temps is added to the schema Magasin
-2016-05-22 00:11:46,652 [INFO ]- The dimension Produit is added to the schema Magasin
-2016-05-22 00:11:46,653 [INFO ]- The dimension Fournisseur is added to the schema Magasin
-2016-05-22 00:11:46,653 [DEBUG]- Loading all cubes from the schema ...
-2016-05-22 00:11:46,657 [DEBUG]- 	Ventes cube was found
-2016-05-22 00:11:46,659 [DEBUG]- 	Achats cube was found
-2016-05-22 00:11:46,660 [INFO ]- The cube Ventes is added to the schema Magasin
-2016-05-22 00:11:46,660 [INFO ]- The cube Achats is added to the schema Magasin
-2016-05-22 00:11:46,812 [DEBUG]- Connecting to jdbc:mysql://localhost:3306/magasin with the user root ...
-2016-05-22 00:11:47,905 [INFO ]- Using "/var/folders/k_/4rtvlc515jjgcm344twyb24c0000gn/T/vfs_cache" as temporary files store.
-2016-05-22 00:11:48,189 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.ftp.FtpFileProvider" because required class "org.apache.commons.net.ftp.FTPFile" is not available.
-2016-05-22 00:11:48,203 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.sftp.SftpFileProvider" because required class "com.jcraft.jsch.JSch" is not available.
-2016-05-22 00:11:48,205 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.webdav.WebdavFileProvider" because required class "org.apache.jackrabbit.webdav.client.methods.DavMethod" is not available.
-2016-05-22 00:11:48,208 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.smb.SmbFileProvider" because required class "jcifs.smb.SmbFile" is not available.
-2016-05-22 00:11:48,209 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.mime.MimeFileProvider" because required class "javax.mail.internet.MimeMultipart" is not available.
-2016-05-22 00:11:48,266 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework
-2016-05-22 00:11:48,267 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
-2016-05-22 00:32:34,413 [DEBUG]- Defined configuration file : /Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/datawarehouse.properties
-2016-05-22 00:32:34,433 [INFO ]- Rolap4j will use the following driver to communicate with data source : com.mysql.jdbc.Driver
-2016-05-22 00:32:34,452 [DEBUG]- Building document from the following file /Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
-2016-05-22 00:32:35,128 [DEBUG]- Loading all dimensions from the schema ...
-2016-05-22 00:32:35,152 [DEBUG]- Loading all Client hierarchies
-2016-05-22 00:32:35,156 [DEBUG]- Loading all Client levels ...
-2016-05-22 00:32:35,160 [DEBUG]- Loading all Type client level properties ...
-2016-05-22 00:32:35,163 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Type client), column=client_type), uniqueMembers=true)
-2016-05-22 00:32:35,163 [DEBUG]- 	Level Type client added to Client hierarchy
-2016-05-22 00:32:35,166 [DEBUG]- Loading all Nom client level properties ...
-2016-05-22 00:32:35,167 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom client), column=client_nom), uniqueMembers=true)
-2016-05-22 00:32:35,168 [DEBUG]- 	Level Nom client added to Client hierarchy
-2016-05-22 00:32:35,169 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:32:35,169 [DEBUG]- 	Hierarchy Client added to Client hierarchies
-2016-05-22 00:32:35,170 [DEBUG]- 	Client dimension was found
-2016-05-22 00:32:35,170 [DEBUG]- Loading all Lieu hierarchies
-2016-05-22 00:32:35,175 [DEBUG]- Loading all Lieu levels ...
-2016-05-22 00:32:35,176 [DEBUG]- Loading all Pays level properties ...
-2016-05-22 00:32:35,177 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Pays), column=lieu_pays), uniqueMembers=true)
-2016-05-22 00:32:35,177 [DEBUG]- 	Level Pays added to Lieu hierarchy
-2016-05-22 00:32:35,178 [DEBUG]- Loading all Région level properties ...
-2016-05-22 00:32:35,178 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Région), column=lieu_region), uniqueMembers=true)
-2016-05-22 00:32:35,178 [DEBUG]- 	Level Région added to Lieu hierarchy
-2016-05-22 00:32:35,179 [DEBUG]- Loading all Ville level properties ...
-2016-05-22 00:32:35,179 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Ville), column=lieu_ville), uniqueMembers=true)
-2016-05-22 00:32:35,180 [DEBUG]- 	Level Ville added to Lieu hierarchy
-2016-05-22 00:32:35,180 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:32:35,180 [DEBUG]- 	Hierarchy Lieu added to Lieu hierarchies
-2016-05-22 00:32:35,180 [DEBUG]- 	Lieu dimension was found
-2016-05-22 00:32:35,181 [DEBUG]- Loading all Temps hierarchies
-2016-05-22 00:32:35,186 [DEBUG]- Loading all Temps levels ...
-2016-05-22 00:32:35,187 [DEBUG]- Loading all Annee level properties ...
-2016-05-22 00:32:35,192 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Annee), column=temps_annee), uniqueMembers=true)
-2016-05-22 00:32:35,196 [DEBUG]- 	Level Annee added to Temps hierarchy
-2016-05-22 00:32:35,197 [DEBUG]- Loading all Trimestre level properties ...
-2016-05-22 00:32:35,198 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Trimestre), column=temps_trimestre), uniqueMembers=false)
-2016-05-22 00:32:35,198 [DEBUG]- 	Level Trimestre added to Temps hierarchy
-2016-05-22 00:32:35,199 [DEBUG]- Loading all Mois level properties ...
-2016-05-22 00:32:35,199 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Mois), column=temps_mois), uniqueMembers=false)
-2016-05-22 00:32:35,200 [DEBUG]- 	Level Mois added to Temps hierarchy
-2016-05-22 00:32:35,200 [DEBUG]- Loading all Jour level properties ...
-2016-05-22 00:32:35,202 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Jour), column=temps_jour_mois), uniqueMembers=false)
-2016-05-22 00:32:35,203 [DEBUG]- 	Level Jour added to Temps hierarchy
-2016-05-22 00:32:35,203 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:32:35,204 [DEBUG]- 	Hierarchy Temps added to Temps hierarchies
-2016-05-22 00:32:35,205 [DEBUG]- Loading all Semaine levels ...
-2016-05-22 00:32:35,206 [DEBUG]- Loading all Annee level properties ...
-2016-05-22 00:32:35,206 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Annee), column=temps_annee), uniqueMembers=true)
-2016-05-22 00:32:35,206 [DEBUG]- 	Level Annee added to Semaine hierarchy
-2016-05-22 00:32:35,207 [DEBUG]- Loading all Mois level properties ...
-2016-05-22 00:32:35,208 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Mois), column=temps_mois), uniqueMembers=false)
-2016-05-22 00:32:35,208 [DEBUG]- 	Level Mois added to Semaine hierarchy
-2016-05-22 00:32:35,209 [DEBUG]- Loading all Jour de la semaine level properties ...
-2016-05-22 00:32:35,209 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Jour de la semaine), column=temps_jour_semaine), uniqueMembers=false)
-2016-05-22 00:32:35,210 [DEBUG]- 	Level Jour de la semaine added to Semaine hierarchy
-2016-05-22 00:32:35,210 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:32:35,211 [DEBUG]- 	Hierarchy Semaine added to Temps hierarchies
-2016-05-22 00:32:35,211 [DEBUG]- 	Temps dimension was found
-2016-05-22 00:32:35,211 [DEBUG]- Loading all Produit hierarchies
-2016-05-22 00:32:35,212 [DEBUG]- Loading all Produit levels ...
-2016-05-22 00:32:35,213 [DEBUG]- Loading all Categorie level properties ...
-2016-05-22 00:32:35,214 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Categorie), column=produit_category), uniqueMembers=true)
-2016-05-22 00:32:35,214 [DEBUG]- 	Level Categorie added to Produit hierarchy
-2016-05-22 00:32:35,215 [DEBUG]- Loading all Marque level properties ...
-2016-05-22 00:32:35,215 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Marque), column=produit_marque), uniqueMembers=true)
-2016-05-22 00:32:35,216 [DEBUG]- 	Level Marque added to Produit hierarchy
-2016-05-22 00:32:35,216 [DEBUG]- Loading all Couleur level properties ...
-2016-05-22 00:32:35,217 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Couleur), column=produit_couleur), uniqueMembers=true)
-2016-05-22 00:32:35,217 [DEBUG]- 	Level Couleur added to Produit hierarchy
-2016-05-22 00:32:35,218 [DEBUG]- Loading all Nom du produit level properties ...
-2016-05-22 00:32:35,218 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom du produit), column=produit_nom), uniqueMembers=true)
-2016-05-22 00:32:35,219 [DEBUG]- 	Level Nom du produit added to Produit hierarchy
-2016-05-22 00:32:35,220 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:32:35,220 [DEBUG]- 	Hierarchy Produit added to Produit hierarchies
-2016-05-22 00:32:35,221 [DEBUG]- 	Produit dimension was found
-2016-05-22 00:32:35,221 [DEBUG]- Loading all Fournisseur hierarchies
-2016-05-22 00:32:35,222 [DEBUG]- Loading all Fournisseur levels ...
-2016-05-22 00:32:35,223 [DEBUG]- Loading all Type fournisseur level properties ...
-2016-05-22 00:32:35,224 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Type fournisseur), column=fournisseur_type), uniqueMembers=true)
-2016-05-22 00:32:35,224 [DEBUG]- 	Level Type fournisseur added to Fournisseur hierarchy
-2016-05-22 00:32:35,225 [DEBUG]- Loading all Nom fournisseur level properties ...
-2016-05-22 00:32:35,230 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom fournisseur), column=fournisseur_nom), uniqueMembers=true)
-2016-05-22 00:32:35,230 [DEBUG]- 	Level Nom fournisseur added to Fournisseur hierarchy
-2016-05-22 00:32:35,230 [DEBUG]- Adding some levels to the current dimension
-2016-05-22 00:32:35,231 [DEBUG]- 	Hierarchy Fournisseur added to Fournisseur hierarchies
-2016-05-22 00:32:35,231 [DEBUG]- 	Fournisseur dimension was found
-2016-05-22 00:32:35,231 [DEBUG]- 5 dimension(s) successfully loaded
-2016-05-22 00:32:35,231 [INFO ]- The dimension Client is added to the schema Magasin
-2016-05-22 00:32:35,231 [INFO ]- The dimension Lieu is added to the schema Magasin
-2016-05-22 00:32:35,232 [INFO ]- The dimension Temps is added to the schema Magasin
-2016-05-22 00:32:35,232 [INFO ]- The dimension Produit is added to the schema Magasin
-2016-05-22 00:32:35,232 [INFO ]- The dimension Fournisseur is added to the schema Magasin
-2016-05-22 00:32:35,232 [DEBUG]- Loading all cubes from the schema ...
-2016-05-22 00:32:35,237 [DEBUG]- 	Ventes cube was found
-2016-05-22 00:32:35,239 [DEBUG]- 	Achats cube was found
-2016-05-22 00:32:35,239 [INFO ]- The cube Ventes is added to the schema Magasin
-2016-05-22 00:32:35,240 [INFO ]- The cube Achats is added to the schema Magasin
-2016-05-22 00:32:35,319 [DEBUG]- Connecting to jdbc:mysql://localhost:3306/magasin with the user root ...
-2016-05-22 00:32:35,936 [INFO ]- Using "/var/folders/k_/4rtvlc515jjgcm344twyb24c0000gn/T/vfs_cache" as temporary files store.
-2016-05-22 00:32:36,061 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.ftp.FtpFileProvider" because required class "org.apache.commons.net.ftp.FTPFile" is not available.
-2016-05-22 00:32:36,072 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.sftp.SftpFileProvider" because required class "com.jcraft.jsch.JSch" is not available.
-2016-05-22 00:32:36,075 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.webdav.WebdavFileProvider" because required class "org.apache.jackrabbit.webdav.client.methods.DavMethod" is not available.
-2016-05-22 00:32:36,076 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.smb.SmbFileProvider" because required class "jcifs.smb.SmbFile" is not available.
-2016-05-22 00:32:36,078 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.mime.MimeFileProvider" because required class "javax.mail.internet.MimeMultipart" is not available.
-2016-05-22 00:32:36,104 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework
-2016-05-22 00:32:36,106 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
-2016-05-22 00:32:37,360 [INFO ]- Selected cube : Ventes
-2016-05-22 00:32:37,360 [INFO ]- New column added : Produit
-2016-05-22 00:32:37,360 [INFO ]- New row added : Lieu
-2016-05-22 00:32:37,361 [INFO ]- New filter added : Prix moyen
-2016-05-22 00:32:37,375 [DEBUG]- [SETLEVEL]: setLevel(dimension : Produit, parent : Produit, child : Nom du produit
-2016-05-22 00:32:37,383 [DEBUG]- 	[SETLEVEL]: Produit incluses Nom du produit
-2016-05-22 00:32:37,410 [DEBUG]- Executing query 
+2016-05-25 21:13:40,476 [DEBUG]- 	Level Pays added to Lieu hierarchy
+2016-05-25 21:13:40,477 [DEBUG]- Loading all Région level properties ...
+2016-05-25 21:13:40,477 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Région), column=lieu_region), uniqueMembers=true)
+2016-05-25 21:13:40,480 [DEBUG]- 	Level Région added to Lieu hierarchy
+2016-05-25 21:13:40,481 [DEBUG]- Loading all Ville level properties ...
+2016-05-25 21:13:40,481 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Ville), column=lieu_ville), uniqueMembers=true)
+2016-05-25 21:13:40,482 [DEBUG]- 	Level Ville added to Lieu hierarchy
+2016-05-25 21:13:40,482 [DEBUG]- Adding some levels to the current dimension
+2016-05-25 21:13:40,483 [DEBUG]- 	Hierarchy Lieu added to Lieu hierarchies
+2016-05-25 21:13:40,484 [DEBUG]- 	Lieu dimension was found
+2016-05-25 21:13:40,486 [DEBUG]- Loading all Temps hierarchies
+2016-05-25 21:13:40,489 [DEBUG]- Loading all Temps levels ...
+2016-05-25 21:13:40,490 [DEBUG]- Loading all Annee level properties ...
+2016-05-25 21:13:40,491 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Annee), column=temps_annee), uniqueMembers=true)
+2016-05-25 21:13:40,492 [DEBUG]- 	Level Annee added to Temps hierarchy
+2016-05-25 21:13:40,494 [DEBUG]- Loading all Trimestre level properties ...
+2016-05-25 21:13:40,494 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Trimestre), column=temps_trimestre), uniqueMembers=false)
+2016-05-25 21:13:40,495 [DEBUG]- 	Level Trimestre added to Temps hierarchy
+2016-05-25 21:13:40,496 [DEBUG]- Loading all Mois level properties ...
+2016-05-25 21:13:40,496 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Mois), column=temps_mois), uniqueMembers=false)
+2016-05-25 21:13:40,497 [DEBUG]- 	Level Mois added to Temps hierarchy
+2016-05-25 21:13:40,497 [DEBUG]- Loading all Jour level properties ...
+2016-05-25 21:13:40,498 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Jour), column=temps_jour_mois), uniqueMembers=false)
+2016-05-25 21:13:40,499 [DEBUG]- 	Level Jour added to Temps hierarchy
+2016-05-25 21:13:40,499 [DEBUG]- Adding some levels to the current dimension
+2016-05-25 21:13:40,499 [DEBUG]- 	Hierarchy Temps added to Temps hierarchies
+2016-05-25 21:13:40,500 [DEBUG]- Loading all Semaine levels ...
+2016-05-25 21:13:40,501 [DEBUG]- Loading all Annee level properties ...
+2016-05-25 21:13:40,501 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Annee), column=temps_annee), uniqueMembers=true)
+2016-05-25 21:13:40,502 [DEBUG]- 	Level Annee added to Semaine hierarchy
+2016-05-25 21:13:40,502 [DEBUG]- Loading all Mois level properties ...
+2016-05-25 21:13:40,503 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Mois), column=temps_mois), uniqueMembers=false)
+2016-05-25 21:13:40,503 [DEBUG]- 	Level Mois added to Semaine hierarchy
+2016-05-25 21:13:40,504 [DEBUG]- Loading all Jour de la semaine level properties ...
+2016-05-25 21:13:40,505 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Jour de la semaine), column=temps_jour_semaine), uniqueMembers=false)
+2016-05-25 21:13:40,505 [DEBUG]- 	Level Jour de la semaine added to Semaine hierarchy
+2016-05-25 21:13:40,506 [DEBUG]- Adding some levels to the current dimension
+2016-05-25 21:13:40,506 [DEBUG]- 	Hierarchy Semaine added to Temps hierarchies
+2016-05-25 21:13:40,507 [DEBUG]- 	Temps dimension was found
+2016-05-25 21:13:40,507 [DEBUG]- Loading all Produit hierarchies
+2016-05-25 21:13:40,508 [DEBUG]- Loading all Produit levels ...
+2016-05-25 21:13:40,509 [DEBUG]- Loading all Categorie level properties ...
+2016-05-25 21:13:40,510 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Categorie), column=produit_category), uniqueMembers=true)
+2016-05-25 21:13:40,510 [DEBUG]- 	Level Categorie added to Produit hierarchy
+2016-05-25 21:13:40,511 [DEBUG]- Loading all Marque level properties ...
+2016-05-25 21:13:40,512 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Marque), column=produit_marque), uniqueMembers=true)
+2016-05-25 21:13:40,513 [DEBUG]- 	Level Marque added to Produit hierarchy
+2016-05-25 21:13:40,513 [DEBUG]- Loading all Couleur level properties ...
+2016-05-25 21:13:40,514 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Couleur), column=produit_couleur), uniqueMembers=true)
+2016-05-25 21:13:40,514 [DEBUG]- 	Level Couleur added to Produit hierarchy
+2016-05-25 21:13:40,515 [DEBUG]- Loading all Nom du produit level properties ...
+2016-05-25 21:13:40,515 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom du produit), column=produit_nom), uniqueMembers=true)
+2016-05-25 21:13:40,516 [DEBUG]- 	Level Nom du produit added to Produit hierarchy
+2016-05-25 21:13:40,516 [DEBUG]- Adding some levels to the current dimension
+2016-05-25 21:13:40,516 [DEBUG]- 	Hierarchy Produit added to Produit hierarchies
+2016-05-25 21:13:40,517 [DEBUG]- 	Produit dimension was found
+2016-05-25 21:13:40,517 [DEBUG]- Loading all Fournisseur hierarchies
+2016-05-25 21:13:40,518 [DEBUG]- Loading all Fournisseur levels ...
+2016-05-25 21:13:40,519 [DEBUG]- Loading all Type fournisseur level properties ...
+2016-05-25 21:13:40,529 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Type fournisseur), column=fournisseur_type), uniqueMembers=true)
+2016-05-25 21:13:40,529 [DEBUG]- 	Level Type fournisseur added to Fournisseur hierarchy
+2016-05-25 21:13:40,530 [DEBUG]- Loading all Nom fournisseur level properties ...
+2016-05-25 21:13:40,531 [DEBUG]- Adding some properties to the level Level(super=MappingElement(super=Element(name=Nom fournisseur), column=fournisseur_nom), uniqueMembers=true)
+2016-05-25 21:13:40,532 [DEBUG]- 	Level Nom fournisseur added to Fournisseur hierarchy
+2016-05-25 21:13:40,532 [DEBUG]- Adding some levels to the current dimension
+2016-05-25 21:13:40,532 [DEBUG]- 	Hierarchy Fournisseur added to Fournisseur hierarchies
+2016-05-25 21:13:40,532 [DEBUG]- 	Fournisseur dimension was found
+2016-05-25 21:13:40,532 [DEBUG]- 5 dimension(s) successfully loaded
+2016-05-25 21:13:40,532 [INFO ]- The dimension Client is added to the schema Magasin
+2016-05-25 21:13:40,533 [INFO ]- The dimension Lieu is added to the schema Magasin
+2016-05-25 21:13:40,533 [INFO ]- The dimension Temps is added to the schema Magasin
+2016-05-25 21:13:40,533 [INFO ]- The dimension Produit is added to the schema Magasin
+2016-05-25 21:13:40,533 [INFO ]- The dimension Fournisseur is added to the schema Magasin
+2016-05-25 21:13:40,534 [DEBUG]- Loading all cubes from the schema ...
+2016-05-25 21:13:40,536 [DEBUG]- 	Ventes cube was found
+2016-05-25 21:13:40,537 [DEBUG]- 	Achats cube was found
+2016-05-25 21:13:40,537 [INFO ]- The cube Ventes is added to the schema Magasin
+2016-05-25 21:13:40,537 [INFO ]- The cube Achats is added to the schema Magasin
+2016-05-25 21:13:40,538 [DEBUG]- ----------------------------------------------------
+2016-05-25 21:13:40,538 [DEBUG]- Printing data source configuration parameters
+2016-05-25 21:13:40,538 [DEBUG]- ----------------------------------------------------
+2016-05-25 21:13:40,538 [DEBUG]- Catalog : /Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
+2016-05-25 21:13:40,539 [DEBUG]- URI : jdbc:mysql://localhost:3306/magasin
+2016-05-25 21:13:40,539 [DEBUG]- Username : root
+2016-05-25 21:13:40,539 [DEBUG]- Password : 
+2016-05-25 21:13:40,540 [DEBUG]- Driver class : com.mysql.jdbc.Driver
+2016-05-25 21:13:40,540 [DEBUG]- Show MDX query ? : Yes
+2016-05-25 21:13:40,540 [DEBUG]- ----------------------------------------------------
+2016-05-25 21:13:40,540 [DEBUG]- Printing all cubes name
+2016-05-25 21:13:40,541 [DEBUG]- ----------------------------------------------------
+2016-05-25 21:13:40,541 [DEBUG]- 	 - Ventes
+2016-05-25 21:13:40,541 [DEBUG]- 	 - Achats
+2016-05-25 21:13:40,541 [DEBUG]- ----------------------------------------------------
+2016-05-25 21:13:40,541 [DEBUG]- Printing all dimensions name
+2016-05-25 21:13:40,541 [DEBUG]- ----------------------------------------------------
+2016-05-25 21:13:40,542 [DEBUG]- 	 - Temps
+2016-05-25 21:13:40,542 [DEBUG]- 	 - Fournisseur
+2016-05-25 21:13:40,542 [DEBUG]- 	 - Lieu
+2016-05-25 21:13:40,542 [DEBUG]- 	 - Client
+2016-05-25 21:13:40,542 [DEBUG]- 	 - Produit
+2016-05-25 21:13:40,626 [DEBUG]- Connecting to jdbc:mysql://localhost:3306/magasin with the user root ...
+2016-05-25 21:13:40,875 [INFO ]- Using "/var/folders/k_/4rtvlc515jjgcm344twyb24c0000gn/T/vfs_cache" as temporary files store.
+2016-05-25 21:13:40,949 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.ftp.FtpFileProvider" because required class "org.apache.commons.net.ftp.FTPFile" is not available.
+2016-05-25 21:13:40,957 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.sftp.SftpFileProvider" because required class "com.jcraft.jsch.JSch" is not available.
+2016-05-25 21:13:40,958 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.webdav.WebdavFileProvider" because required class "org.apache.jackrabbit.webdav.client.methods.DavMethod" is not available.
+2016-05-25 21:13:40,960 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.smb.SmbFileProvider" because required class "jcifs.smb.SmbFile" is not available.
+2016-05-25 21:13:40,961 [DEBUG]- Skipping provider "org.apache.commons.vfs.provider.mime.MimeFileProvider" because required class "javax.mail.internet.MimeMultipart" is not available.
+2016-05-25 21:13:40,983 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework
+2016-05-25 21:13:40,986 [DEBUG]- putFile: file:///Users/andriantomanga/IdeaProjects/rolap4j-framework/rolap4j-framework-demo-resources/magasin.xml
+2016-05-25 21:13:41,707 [INFO ]- Selected cube : Ventes
+2016-05-25 21:13:41,708 [INFO ]- New column added : Temps
+2016-05-25 21:13:41,708 [INFO ]- New column added : Produit
+2016-05-25 21:13:41,709 [INFO ]- New row added : Lieu
+2016-05-25 21:13:41,762 [DEBUG]- Executing query 
 
 SELECT
-{Hierarchize({[Produit].[Nom du produit].Members})} ON COLUMNS,
+CrossJoin({[Temps].[2013]}, {[Produit].[Tous les produits]}) ON COLUMNS,
 {Hierarchize({[Lieu].[Tous les lieux]})} ON ROWS
 FROM [Ventes]
-WHERE {[Measures].[Prix moyen]}
-2016-05-22 00:32:37,411 [DEBUG]- Connecting to jdbc:mysql://localhost:3306/magasin with the user root ...
+2016-05-25 21:13:41,763 [DEBUG]- Connecting to jdbc:mysql://localhost:3306/magasin with the user root ...
