@@ -80,6 +80,7 @@ public class QueryUnitTest {
 
     }
 
+    @Ignore
     @Test
     public void executeQueryTest3() {
 
@@ -108,7 +109,7 @@ public class QueryUnitTest {
 
     }
 
-    @Ignore
+    //@Ignore
     @Test
     public void executeQueryTest4() {
 

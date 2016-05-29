@@ -147,7 +147,22 @@ try {
 }
 ```
 
+To project a level of a dimension, use the following methods : ```useColumn( column_name, level_name )```, ```useRow( column_name, level_name )```, ```useFilter( column_name, level_name )```
+```java
+try {
+    Query query = new Query.QueryBuilder()
+        .fromCube("Sales")
+        .useColumn("Product", "Product Category")  // project by category
+        .useRow("Location")
+        .userFilter("Price")
+    .build();
 
+    query.printResults();
+
+} catch (Rolap4jException e) {
+    e.printStackTrace();
+}
+```
 
 
 
