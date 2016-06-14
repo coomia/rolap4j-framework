@@ -51,4 +51,31 @@ public interface QuerySortingPlan {
      * @return
      */
     public Query.QueryBuilder sortFilters(SortOrder order);
+
+
+    /**
+     *
+     * @param order
+     * @param measure
+     * @return
+     */
+    public Query.QueryBuilder sortColumnsBy(SortOrder order, String measure);
+
+
+    /**
+     *
+     * @param order
+     * @param measure
+     * @return
+     */
+    public Query.QueryBuilder sortRowsBy(SortOrder order, String measure);
+
+
+    /**
+     *
+     * @param order
+     * @param measure
+     * @return
+     */
+    public Query.QueryBuilder sortFiltersBy(SortOrder order, String measure);
 }

@@ -503,6 +503,49 @@ public class Query {
             axesSortStrategies.put(Axis.FILTER, QueryUtil.toOlap4jSortOrder(order));
             return this;
         }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public QueryBuilder sortColumnsBy(org.rolap4j.api.enums.SortOrder order, String measure) {
+
+            orderAxis(Axis.COLUMNS, QueryUtil.toOlap4jSortOrder(order), measure);
+            return null;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public QueryBuilder sortRowsBy(org.rolap4j.api.enums.SortOrder order, String measure) {
+            return null;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public QueryBuilder sortFiltersBy(org.rolap4j.api.enums.SortOrder order, String measure) {
+            return null;
+        }
+
+        private Map<Axis, OrderCriteria> orderCriterias = new HashMap<Axis, OrderCriteria>();
+
+        private List<String> errorList 	= new ArrayList<String>();
+
+        private void orderAxis(Axis targetAxis, SortOrder order, String measure) {
+            if(orderCriterias.containsKey(targetAxis)) {
+                errorList.add("Vous ne pouvez appliquer qu'un critere de tri par axe");
+            } else {
+                OrderCriteria criteria = new OrderCriteria();
+                criteria.setAxis(targetAxis);
+                criteria.setMeasure(measure);
+                criteria.setOrder(order);
+                orderCriterias.put(targetAxis, criteria);
+            }
+        }
+
     }
 
 }
