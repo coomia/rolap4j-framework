@@ -1,3 +1,6 @@
+
+![Image not found](https://raw.githubusercontent.com/Andriantomanga/rolap4j-framework/master/rolap4j-logo.png "Rolap4J Framework")
+
 # rolap4j-framework
 
 Framework for Business Intelligence based on Relational OnLine Analytical Processing Architecture.
