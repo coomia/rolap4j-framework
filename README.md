@@ -1,5 +1,7 @@
 
-![Image not found](https://raw.githubusercontent.com/Andriantomanga/rolap4j-framework/master/rolap4j-logo.png "Rolap4J Framework")
+
+
+<img src="https://raw.githubusercontent.com/Andriantomanga/rolap4j-framework/master/rolap4j-logo.png" width="200"/>
 
 # rolap4j-framework
 
